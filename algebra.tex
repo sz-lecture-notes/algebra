@@ -45,7 +45,7 @@
 
 Zajmiemy się teraz zdefiniowaniem tak zwanych \textbf{struktur algebraicznych}.
 Będą to zbiory z działaniami, które spełniają pewne własności.
-Znanym nam już przykładem---do którego jedank przejdziemy znacznie później---są przestrzenie liniowe.
+Znanym nam już przykładem---do którego jednak przejdziemy znacznie później---są przestrzenie liniowe.
 
 W tekście zakładamy, że $0 \in \mathbb{N}$.
 
@@ -183,6 +183,12 @@ składające się z wielu działań (ale nadal tylko jednego zbioru).
 
 \begin{exercise}
     Niech $(A, \cdot, e, (\cdot^{-1}))$ będzie dowolną grupą.
+    Udowodnij, że dla każdego $x \in A$ zachodzi ${x^{-1}}^{-1} = x$.
+\end{exercise}
+
+
+\begin{exercise}
+    Niech $(A, \cdot, e, (\cdot^{-1}))$ będzie dowolną grupą.
     Udowodnij, że jeśli dana jest funkcja $f: A \to A$, spełniająca
     \begin{equation*}
         \forall_{x\in A}\; f(x) \cdot x = e = x \cdot f(x),
@@ -207,7 +213,7 @@ Możemy się już domyślać,
 Przykładowo,
 w algebrze występuje pojęcie \textbf{homomorfizmu}---funkcji $h: A \to B$ między dwoma strukturami tego samego typu (np. między dwoma grupami, dwoma monoidami i t.d.),
 które dodatkowo spełniają pewne warunki.
-Zawsze jednym z nich jest (jeśli (A, \star, \dots) i (B, \bullet, \dots) są jakimiś strukturami)
+Zawsze jednym z nich jest (jeśli $(A, \star, \dots)$ i $(B, \bullet, \dots)$ są jakimiś strukturami)
 \begin{equation}
 	h(a\star b) = h(a) \bullet h(b).
 \end{equation}
@@ -227,7 +233,7 @@ Nasuwa się jednak pytanie: czy nie dałoby się uogólnić tego, abyśmy mieli 
 
 Ciężko jednak powiedzieć, co należałoby wstawić w miejsce kropek, aby sformalizować tę definicję.
 Podobna sytuacja zachodzi,
-jeśli zechcemy zacząć definiować \textbf{podgrupy}, \textbf{podprzestrzenie liniowe}, \textbf{podmonoidy} i t.d.
+    jeśli zechcemy zacząć definiować \textbf{podgrupy}, \textbf{podciała}, \textbf{podmonoidy} i t.d.
 Definicje tych obiektów byłyby do siebie bardzo podobne.
 Jak jednak zawrzeć je wszystkie w jednej definicji?
 Odpowiedzi na te pytania dostarcza nam dziedzina algebry zwana \textit{Algebrą Uniwersalną}.
@@ -328,12 +334,47 @@ Modelem algebry jest dowolny \textit{obiekt}, który spełnia tę definicję.
 	Zapisz definicję grupy abelowej w postaci algebry.
 \end{exercise}
 
+\section{Pewne definicje związane z algebrami.}
+
+\begin{definition}
+    \textbf{Podmodelem algebry} nazywamy
+\end{definition}
+
+\begin{definition}
+    \textbf{Homomorfizmem} (lub czasami \textbf{morfizmem}) nazywamy
+\end{definition}
+
+Z pewnych niewyjaśnionych powodów,
+    w przypadku homomorfizmów nie używa się pojęć takich jak iniekcja, bijekcja i surjekcja.
+Zamiast tych pochodzących z francuskiego wyrazów mamy greckie odpowiedniki.
+
+\begin{definition}
+    Homomorfizm nazywamy
+    \begin{itemize}
+        \item \textbf{epimorfizmem}, jeśli jest surjekcją,
+        \item \textbf{monomorfizmem}, jeśli jest iniekcją,
+        \item \textbf{izomorfizmem}, jeśli jest bijekcją,
+        \item \textbf{endomorfizmem}, jeśli jego dziedzina i kodziedzina są równe, t.j. jest postaci $h:A \to A$,
+        \item \textbf{automorfizmem}, jeśli jest endomorfizmem i izomorfizmem.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Wolnym modelem generowanym przez zbiór 
+\end{definition}
+
+\begin{definition}
+    Prezentacją modelu
+\end{definition}
+
 \section{Twierdzenia o homomorfizmach.}
 
 \section{Grupy.}
 
 Pochylimy się teraz nieco bardziej szczegółowo nad grupami,
 gdyż stanowią one jedną z najważniejszych i najgłębiej badanych struktur algebraicznych.
+
+
 
 \section{Przestrzenie liniowe.}
 
