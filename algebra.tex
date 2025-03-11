@@ -99,6 +99,10 @@ Podobny zabieg wykonamy dla wszystkich kolejnych definiowanych przez nas struktu
 	\end{math}
 \end{definition}
 
+Element $e$ nazywamy zwykle \textbf{jednością}, \textbf{jedynką} lub \textbf{zerem}.
+Jeśli element ten będzie wiadomy z kontekstu,
+	to nie będziemy o nim wspominać
+
 \begin{example}
 	$(\mathbb{Z}, +, 0)$ jest monoidem.
 \end{example}
@@ -113,9 +117,8 @@ Podobny zabieg wykonamy dla wszystkich kolejnych definiowanych przez nas struktu
 \end{example}
 
 \begin{example}
-	$(\mathbb{R}^{2 \times 2}, \cdot, \left[\begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix}\right])$ jest monoidem.
+	$\left(\mathbb{R}^{2 \times 2}, \cdot, \left[\begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix}\right]\right)$ jest monoidem.
 \end{example}
-
 
 \noindent\sout{
 	\textbf{Przykład 1.1.?} Monada jest monoidem w kategorii endofunktorów.
@@ -129,6 +132,25 @@ Jeśli ktoś kiedyś słyszał lub usłyszy o powyższym stwierdzeniu, często �
 		\forall_{x \in A}\; {x\star x^{-1} = e = x^{-1} \star x}.
 	\end{equation*}
 \end{definition}
+Podobnie jak w przypadku monoidu,
+	jeśli funkcja odwrotności będzie oczywista,
+	to nie będziemy o niej wspominać.
+
+\begin{example}
+	$(\mathbb{Q}, +, 1, (\cdot^{-1}))$ jest grupą.
+\end{example}
+
+\begin{example}
+	Używając uproszczonej terminologii: zbiór $\{A \in \mathbb{R}^{2 \times 2} | \det(A) \neq 0 \}$
+		ze standardowym mnożeniem macierzy stanowi grupę.
+\end{example}
+
+\begin{example}
+	Zbiór $\mathbb{R}^{n \times n}$ dla ustalonego $n > 1$ nie stanowi grupy
+		ze standardowym mnożeniem macierzy,
+		gdyż nie każdy element ma odwrotność.
+	Ten sam zbiór z dodawaniem macierzy jest już jednak grupą.
+\end{example}
 
 \subsubsection{Przemienność.}
 Jeśli w którejś ze zdefiniowanych przez nas struktur działanie $\star$ jest przemienne, to znaczy
@@ -141,13 +163,34 @@ Grupy przemienne nazywa się jednak zwykle \textbf{grupami abelowymi},
 od nazwiska norweskiego matematyka Nielsa Henrika Abela, 1802--1829.
 ,,Abelowy" piszemy jednak z małej litery (z wyjątkiem początku zdania), gdyż jest to przymiotnik.
 
+\begin{example}
+	$\mathbb{N}$ z dodawaniem jest półgrupą przemienną.
+\end{example}
+
+\begin{example}
+	$\mathbb{Q}$ z mnożeniem jest grupą abelową.
+\end{example}
+
+\begin{example}
+	Zbiór ciągów znakowych z konkatenacją nie jest monoidem przemiennym---w konkatenacji kolejność ma znaczenie.
+\end{example}
+
 \subsection{Złożone struktury.}
 Używając zdefiniowanych przez nas prostych struktur algebraicznych,
 możemy definiować bardziej złożone,
 składające się z wielu działań (ale nadal tylko jednego zbioru).
 
 \begin{definition}
-	\textbf{Pierścieniem} nazywamy trójkę $(P, +, \cdot)$, że
+	\textbf{Pierścieniem} nazywamy piątkę $(P, e, +, -, \cdot)$,
+		gdzie $+$ jest operacją dwuargumentową,
+		a $-$ jednoargumentową,
+		że $(P, \cdot+\cdot, e, -\cdot) jest grupą abelową,
+		a $(P, \cdot) jest monoidem,
+		oraz zachodzą równania
+		\begin{align}
+			\forall_{a, b, c \in P} a \cdot (b + c) &= a \cdot b + a \cdot c \\
+			\forall_{a, b, c \in P} (a + b) \cdot c &= a \cdot c + b \cdot c
+		\end{align}
 \end{definition}
 
 \begin{definition}
@@ -157,7 +200,9 @@ składające się z wielu działań (ale nadal tylko jednego zbioru).
 \subsection{Zadania.}
 
 \begin{exercise}
-	Sprawdź, czy zbiór macierzy $\mathbb{R}^{2 \times 2}$ jest grupą.
+	Pokaż, że zbiór macierzy $\mathbb{R}^{2 \times 2}$ z mnożeniem
+		jest magmą, półgrupą, monoidem.
+	Pokaż, że nie jest grupą.
 \end{exercise}
 
 \begin{exercise}
@@ -218,7 +263,7 @@ Zawsze jednym z nich jest (jeśli $(A, \star, \dots)$ i $(B, \bullet, \dots)$ s�
 	h(a\star b) = h(a) \bullet h(b).
 \end{equation}
 Ale definicje mają zwykle też więcej wymagań.
-W przypadku monoidów $(A, \star, e_A), (B, \star, e_B)$,
+W przypadku monoidów $(A, \star, e_A)$, $(B, \star, e_B)$,
 chcemy aby zachodziło też
 \begin{equation}
 	h(e_A) = e_B.
@@ -300,16 +345,21 @@ Zwykle zapis będziemy jednak upraszczać, podając jednocześnie zbiór symboli
 	\Sigma = \{f^2, g^2, e\},
 \end{equation}
 t.j. podając w definicji symboli ich arność w indeksie górnym, i pomijając ją dla $0$.
+Idąc tą konwencją będziemy też zamiast $(\Sigma, \alpha, E)$ pisać $(\Sigma, E)$.
 
 Algebry odpowiadają więc definicjom struktur.
 Co odpowiada jednak obiektom, spełniającym te definicje?
 
 \begin{definition}
-	\textbf{Modelem algebry} $(\Sigma, \alpha, E)$ nazywamy zbiór $A$,
+    \textbf{Modelem algebry} $(\Sigma, \alpha, E)$ nazywamy zbiór $A$ (zwany \textbf{nośnikiem}),
 	wraz z interpretacją symboli z $\Sigma$ jako funkcje o arnościach definiowanych przez $\alpha$ i spełniających równania $E$.
 \end{definition}
 Znowu nie jest to całkowicie formalna definicja,
 na nasze potrzeby jednak w pełni wystarczy.
+
+\begin{example}
+	Zbiór $A = \mathbb{R}$ z działaniami $f(x, y) = x + y$, $g(x, y) = xy$ jest modelem zmyślonastruktury.
+\end{example}
 
 Możemy teraz definiować nasze struktury w taki sam sposób jak zmyślonastrukturę.
 \begin{definition}
@@ -337,8 +387,16 @@ Modelem algebry jest dowolny \textit{obiekt}, który spełnia tę definicję.
 \section{Pewne definicje związane z algebrami.}
 
 \begin{definition}
-    \textbf{Podmodelem algebry} nazywamy
+    \textbf{Podmodelem modelu $M$ algebry $(\Sigma, E)$} nazywamy podzbiór $N \subseteq M$,
+		który jest modelem algebry $(\Sigma, E)$ z tymi samymi operacjami co $M$.
 \end{definition}
+
+\begin{example}
+	$2\mathbb{N}$, czyli liczby parzyste naturalne stanowią podpółgrupę liczb naturalnych z dodawaniem.
+\end{example}
+\begin{example}
+	$\mathbb{Q}$ stanowi podgrupę przemienną grupy $\mathbb{R}$ z mnożeniem.
+\end{example}
 
 \begin{definition}
     \textbf{Homomorfizmem} (lub czasami \textbf{morfizmem}) nazywamy
@@ -360,12 +418,84 @@ Zamiast tych pochodzących z francuskiego wyrazów mamy greckie odpowiedniki.
 \end{definition}
 
 \begin{definition}
-    Wolnym modelem generowanym przez zbiór 
+	Mówimy, że modele $A, B$ algebry $(\Sigma, E)$ są izomorficzne,
+		jeśli istnieje izomorfizm $f: A \to B$.
 \end{definition}
+Jeśli dwa modele są izomorficzne, to w pewnym sensie są identyczne---różnią się tylko formą zapisu.
+Poza tym wszystkie algebraiczne własności,
+	które zachodzą w jednym modelu,
+	zachodzą też w drugim.
+
+\begin{definition}
+    Wolnym modelem algebry $(\Sigma, E)$ generowanym przez zbiór $G$ (tak zwany \textbf{zbiór generatorów}),
+    nazywamy model algebry $(\Sigma, E)$, którego nośnikiem jest zbiór wszystkich wyrażeń,
+		które utworzyć możemy z elementów $\Sigma$ i $G$, traktują elementy $\Sigma$ jak
+		funkcje z odpowiednimi arnościami.
+	Dodatkowo,
+		dwa wyrażenia uznajemy za równe,
+		jeśli jedno możemy przekształcić w drugie używając równań z $E$.
+\end{definition}
+Mówimy też, że model jest \textit{nad zbiorem $G$}.
+Znowu nie jest to w pełni formalna definicja,
+	jednak bardzo intuicyjnie oddająca istotę wolnych modeli.
+Definicja w pełni formalna wymagałaby albo wprowadzenia pewnych formalnych pojęć,
+	których nie będziemy wprowadzać (ilorazy modeli przez podmodele),
+	albo byłaby bardzo abstrakcyjna.
+
+Zwykle jako zbiór $G$ bierze się pewne formalne symbole, czyli jakieś litery.
+
+\begin{example}
+	Grupą wolną na zbiorze $\{a\}$ nazywamy grupę, której elementami są
+	$e, a, a^{-1}, a^2, a^{-2}, \dots$.
+	Zachodzą w niej m.in. równości
+	\begin{align}
+		aa{^-1} &= e \\
+		eae &= a \\
+		a^{-1}a &= e
+	\end{align}
+\end{example}
+
+W pewnym sensie grupą wolną na zbiorze $G$ jest najprostrza grupa,
+	która zawiera całe $G$ jako swoje elementy.
+Najprostsza,
+	bo nie zachodzą w niej inne równania,
+	niż te,
+	które stanowią aksjomaty grupy,
+	oraz te,
+	które można z nich wyprowadzić.
+
+\begin{example}
+	$\mathbb{Z}$ wraz z dodawaniem stanowi wolną grupę przemienną nad zbiorem $\{1\}$
+\end{example}
+
+\begin{example}
+	$\mathbb{Z}$ wraz z mnożeniem nie stanowi wolnej grupy przemiennej,
+		bo dla dowolnego elementu $x$ mamy
+		\begin{equation}
+		0x = 0
+		\end{equation}
+		czego nie możemy wyprowadzić z aksjomatów grupy przemiennej.
+\end{example}
+
+Podobnie sprawa ma się z innymi wolnymi modelami algebr.
+W wolnym monoidzie spełnione jest tylko
+	
 
 \begin{definition}
     Prezentacją modelu
 \end{definition}
+
+\subsection{Zadania.}
+\begin{exercise}
+	Niech $A$ będzie grupą abelową, a $B$ dowolną grupą.
+	Udowodnij, że jeśli $f: A \to B$ jest epimorfizmem,
+		to $B$ jest grupą abelową.
+\end{exercise}
+
+\begin{exercise}
+	Udowodnij, że jeśli $A, B$ są zbiorami i $|A| = |B|$,
+		to grupa wolna nad $A$ i grupa wolna nad $B$ są izomorficzne.
+\end{exercise}
 
 \section{Twierdzenia o homomorfizmach.}
 
