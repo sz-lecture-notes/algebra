@@ -20,7 +20,6 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[polish]{babel}
-\usepackage[oldstyle]{kpfonts}
 \usepackage{fontspec}
 \usepackage{tocloft}
 \usepackage[perpage]{footmisc}
@@ -41,11 +40,17 @@
 
 \maketitle
 
+\begin{enumerate}
+	\item Kongruencje
+	\item Jądra
+	\item Tw. o homomorfizmach.
+\end{enumerate}
+
 \section{Struktury algebraiczne.}
 
 Zajmiemy się teraz zdefiniowaniem tak zwanych \textbf{struktur algebraicznych}.
 Będą to zbiory z działaniami, które spełniają pewne własności.
-Znanym nam już przykładem---do którego jednak przejdziemy znacznie później---są przestrzenie liniowe.
+Znanym nam już przykładem{\mbox{---}}do którego jednak przejdziemy znacznie później---są przestrzenie liniowe.
 
 W tekście zakładamy, że $0 \in \mathbb{N}$.
 
@@ -91,15 +96,39 @@ Podobny zabieg wykonamy dla wszystkich kolejnych definiowanych przez nas struktu
 	\end{equation*}
 \end{example}
 
+Dzięki łączności,
+	działania w półgrupach nie wymagają nawiasów.
+Przykładowo, jeśli $(A, \cdot)$ jest półgrupą i $a, b, c, d \in A$,
+	to zapis
+\begin{equation}
+	a \cdot b \cdot c \cdot d
+\end{equation}
+	jest jednoznaczny, bo
+\begin{equation}
+		a \cdot (b \cdot (c \cdot d)) = 
+		(a \cdot b) \cdot (c \cdot d) =
+		(a \cdot ((b \cdot c) \cdot d) = \dots
+\end{equation}
+	co niekoniecznie zachodzi w magmie.
+Własność tę można udowodnić indukcyjnie.
+
+Jeśli w półgrupie działanie oznaczamy przez $\cdot$,
+	to zwykle nie będziemy go zapisywać.
+To znaczy, zamiast pisać $x \cdot y$ będziemy pisać $xy$.
 
 \begin{definition}
-	\textbf{Monoidem} nazywamy trójkę $(A, \star, e)$, że $(A, \star)$ jest półgrupą, a $e\in A$ jest \textbf{elementem neutralnym działania $\star$}, t.j. takim, że
-	\begin{math}
-		\forall_{x \in A}\; e \star x = \star x = x \star e.
-	\end{math}
+	\textbf{Monoidem} nazywamy trójkę $(A, \star, e)$,
+		że $(A, \star)$ jest półgrupą,
+		a $e\in A$ jest \textbf{elementem neutralnym} działania $\star$,
+		t.j. takim, że
+	\begin{equation}
+		\forall_{x \in A}\; e \star x = x = x \star e.
+	\end{equation}
 \end{definition}
 
-Element $e$ nazywamy zwykle \textbf{jednością}, \textbf{jedynką} lub \textbf{zerem}.
+Element $e$ nazywamy zwykle \textbf{jednością},
+	\textbf{jedynką} lub \textbf{zerem},
+	zależnie od kontekstu.
 Jeśli element ten będzie wiadomy z kontekstu,
 	to nie będziemy o nim wspominać
 
@@ -109,7 +138,10 @@ Jeśli element ten będzie wiadomy z kontekstu,
 
 \begin{example}
 	$(\mathbb{N}_+, +)$ \textit{nie} jest monoidem, bo nie jest trójką, tylko parą.
-	Ale nawet gdybyśmy chcieli, to nie zrobimy z tego zbioru i działania monoidu, bo nie ma dodatniej liczby naturalnej $n$, że $n + a = a$ dla każdego $a \in \mathbb{N}_+$.
+	Ale nawet gdybyśmy chcieli,
+		to nie zrobimy z tego zbioru i działania monoidu,
+		bo nie ma dodatniej liczby naturalnej $n$,
+		że $n + a = a$ dla każdego $a \in \mathbb{N}_+$.
 \end{example}
 
 \begin{example}
@@ -124,16 +156,23 @@ Jeśli element ten będzie wiadomy z kontekstu,
 	\textbf{Przykład 1.1.?} Monada jest monoidem w kategorii endofunktorów.
 }
 
-Jeśli ktoś kiedyś słyszał lub usłyszy o powyższym stwierdzeniu, często żartobliwie przytaczanym jako ,,proste" wytłumaczenie, czym jest monada, to zapewniam, że jest ono prawdziwe. Chodzi tam jednak o inny monoid, znacznie uogólniony w stosunku do naszego.
+Jeśli ktoś kiedyś słyszał lub usłyszy o powyższym stwierdzeniu,
+	często żartobliwie przytaczanym jako ,,proste'' wytłumaczenie,
+	czym jest monada, to zapewniam, że jest ono prawdziwe.
+Chodzi tam jednak o inny monoid,
+	znacznie uogólniony w stosunku do naszego.
 
 \begin{definition}
-    \textbf{Grupą} nazywamy czwórkę $(A, \star, e, (\cdot^{-1}))$, że $(A, \star, e)$ jest monoidem, a $(\cdot^{-1}): A \to A$ jest funkcją przypisującą każdemu elementowi jego \textbf{odwrotność}, to znaczy spełniającą warunek
+    \textbf{Grupą} nazywamy czwórkę $(A, \star, e, \mathrm{inv})$,
+		że $(A, \star, e)$ jest monoidem,
+		a $\mathrm{inv}: A \to A$ jest funkcją przypisującą każdemu elementowi jego \textbf{odwrotność},
+		to znaczy spełniającą warunek
 	\begin{equation*}
-		\forall_{x \in A}\; {x\star x^{-1} = e = x^{-1} \star x}.
+		\forall_{x \in A}\; {x\star \mathrm{inv}(x) = e = \mathrm{inv}(x) \star x}.
 	\end{equation*}
 \end{definition}
 Podobnie jak w przypadku monoidu,
-	jeśli funkcja odwrotności będzie oczywista,
+	jeśli jedność i funkcja odwrotności będzie oczywista,
 	to nie będziemy o niej wspominać.
 
 \begin{example}
@@ -141,7 +180,10 @@ Podobnie jak w przypadku monoidu,
 \end{example}
 
 \begin{example}
-	Używając uproszczonej terminologii: zbiór $\{A \in \mathbb{R}^{2 \times 2} | \det(A) \neq 0 \}$
+	Używając uproszczonej terminologii, zbiór
+	\begin{equation}
+		\{A \in \mathbb{R}^{2 \times 2} | \det(A) \neq 0 \}
+	\end{equation}
 		ze standardowym mnożeniem macierzy stanowi grupę.
 \end{example}
 
@@ -149,19 +191,19 @@ Podobnie jak w przypadku monoidu,
 	Zbiór $\mathbb{R}^{n \times n}$ dla ustalonego $n > 1$ nie stanowi grupy
 		ze standardowym mnożeniem macierzy,
 		gdyż nie każdy element ma odwrotność.
-	Ten sam zbiór z dodawaniem macierzy jest już jednak grupą.
+	Ten sam zbiór z dodawaniem macierzy jest już jednak grupą---odwrotnościami są negacje macierzy.
 \end{example}
 
 \subsubsection{Przemienność.}
 Jeśli w którejś ze zdefiniowanych przez nas struktur działanie $\star$ jest przemienne, to znaczy
 \begin{equation}
-	\forall{x,y \in A}\; x \star y = y \star x,
+	\forall_{x,y \in A}\; x \star y = y \star x,
 \end{equation}
 to strukturę tę nazywamy przemienną.
 Mamy więc \textbf{przemienne magmy}, \textbf{przemienne półgrupy}, \textbf{przemienne monoidy} i \textbf{przemienne grupy}.
 Grupy przemienne nazywa się jednak zwykle \textbf{grupami abelowymi},
 od nazwiska norweskiego matematyka Nielsa Henrika Abela, 1802--1829.
-,,Abelowy" piszemy jednak z małej litery (z wyjątkiem początku zdania), gdyż jest to przymiotnik.
+,,Abelowy'' piszemy jednak z małej litery (z wyjątkiem początku zdania), gdyż jest to przymiotnik.
 
 \begin{example}
 	$\mathbb{N}$ z dodawaniem jest półgrupą przemienną.
@@ -172,30 +214,64 @@ od nazwiska norweskiego matematyka Nielsa Henrika Abela, 1802--1829.
 \end{example}
 
 \begin{example}
-	Zbiór ciągów znakowych z konkatenacją nie jest monoidem przemiennym---w konkatenacji kolejność ma znaczenie.
+	Zbiór ciągów znakowych z konkatenacją \textit{nie} jest monoidem przemiennym---w konkatenacji kolejność ma znaczenie.
 \end{example}
 
 \subsection{Złożone struktury.}
-Używając zdefiniowanych przez nas prostych struktur algebraicznych,
-możemy definiować bardziej złożone,
-składające się z wielu działań (ale nadal tylko jednego zbioru).
+Używając zdefiniowanych przez nas prostych struktur algebraicznych możemy definiować bardziej złożone,
+	składające się z wielu działań (ale nadal tylko jednego zbioru).
 
 \begin{definition}
-	\textbf{Pierścieniem} nazywamy piątkę $(P, e, +, -, \cdot)$,
-		gdzie $+$ jest operacją dwuargumentową,
-		a $-$ jednoargumentową,
-		że $(P, \cdot+\cdot, e, -\cdot) jest grupą abelową,
-		a $(P, \cdot) jest monoidem,
+	\textbf{Pierścieniem} nazywamy szóstkę $(P, +, 0, \mathrm{neg}, \cdot, 1)$,
+		że $(P, +, 0, \mathrm{neg})$ jest grupą abelową,
+		a $(P, \cdot, 1)$ jest monoidem,
 		oraz zachodzą równania
 		\begin{align}
-			\forall_{a, b, c \in P} a \cdot (b + c) &= a \cdot b + a \cdot c \\
-			\forall_{a, b, c \in P} (a + b) \cdot c &= a \cdot c + b \cdot c
+			\label{dist1}\forall_{a, b, c \in P} a \cdot (b + c) &= a \cdot b + a \cdot c \\
+			\label{dist2}\forall_{a, b, c \in P} (a + b) \cdot c &= a \cdot c + b \cdot c
 		\end{align}
 \end{definition}
 
+W pierścieniu mamy już nie jedno,
+	a dwa działania.
+Tworzą one niezależnie od siebie grupę abelową i monoid,
+	ale dodatkowo łączy jest \textbf{rozdzielność},
+	czyli równania \eqref{dist1} i \eqref{dist2}.
+
+\begin{example}
+	Liczby całkowite z dodawaniem i mnożeniem tworzą pierścień.
+	Jest to podstawowy przykład i inspiracja dla definicji pierścienia.
+\end{example}
+
+\begin{example}
+	Niech $P_n(\mathbb{R})$ będzie zbiorem wielomianów o współczynnikach z $\mathbb{R}$ o
+		stopniu conajwyżej $n$.
+	Wtedy $P_n(\mathbb{R})$ z dodawaniem i mnożeniem wielomianów tworzy pierścień.
+\end{example}
+
+Dodatkowo możemy zdefiniować,
+	że pierścień $(P, +, 0, \mathrm{neg}, \cdot, 1)$ jest przemienny,
+	jeśli działanie $\cdot$ jest przemienne.
+Przemienność $+$ jest natomiast wymagana już przez samą definicję pierścienia.
+
 \begin{definition}
-	\textbf{Ciałem} nazywamy pierścień $(P, +, \cdot)$
+	\textbf{Ciałem} nazywamy siódemkę $(K, +, 0, \mathrm{neg}, \cdot, 1, \mathrm{inv})$,
+		że $(K, +, 0, \mathrm{neg}, \cdot, 1)$ jest pierścieniem,
+		a $(K \\ \{0\}, \cdot, 1, \mathrm{inv})$ jest grupą abelową.
 \end{definition}
+
+\begin{example}
+	$\mathbb{Q}$ z dodawaniem i dzieleniem tworzy ciało.
+\end{example}
+
+\begin{example}
+	$\mathbb{R}$ z dodawaniem i dzieleniem tworzy ciało.
+\end{example}
+
+\begin{example}
+	$\mathbb{Z}$ z dodawaniem i dzieleniem \textit{nie} tworzy ciała---w liczbach całkowitych
+		odwrotność względem mnożenia ma tylko $1$.
+\end{example}
 
 \subsection{Zadania.}
 
@@ -206,7 +282,7 @@ składające się z wielu działań (ale nadal tylko jednego zbioru).
 \end{exercise}
 
 \begin{exercise}
-	Podaj przykład nieprzemiennej grupy.
+	Podaj przykład grupy, która nie jest przemienna.
 \end{exercise}
 
 \begin{exercise}
@@ -223,28 +299,72 @@ składające się z wielu działań (ale nadal tylko jednego zbioru).
 \end{exercise}
 
 \begin{exercise}
-	Sprawdź, które z definicji struktur algebraicznych spełnia zbiór ścieżek na płaszczyźnie (t.j. funkcji $[0, 1] \to \mathbb{R}^2$) z operacją łączenia ich swoimi końcami (tzn. dwie ścieżki możemy połączyć w jedną, wtedy i tylko wtedy gdy pierwsza kończy się tam, gdzie druga się zaczyna).
+	Sprawdź,
+		które z definicji struktur algebraicznych spełnia zbiór ścieżek na płaszczyźnie
+		(t.j. funkcji $[0, 1] \to \mathbb{R}^2$) z operacją łączenia ich swoimi końcami
+		(tzn. dwie ścieżki możemy połączyć w jedną,
+			wtedy i tylko wtedy gdy pierwsza kończy się tam,
+			gdzie druga się zaczyna).
 \end{exercise}
 
 \begin{exercise}
-    Niech $(A, \cdot, e, (\cdot^{-1}))$ będzie dowolną grupą.
+	Udowodnij,
+		że $\mathbb{R}^{2 \times 2}$ ze standardowym dodawaniem i mnożeniem macierzy tworzy pierścień.
+\end{exercise}
+
+\begin{exercise}
+	Zapisz definicję ciała, nie używając definicji pierścienia.
+\end{exercise}
+
+\begin{exercise}
+	Udowodnij, że liczby zespolone $\mathbb{C}$ są ciałem.
+\end{exercise}
+
+\begin{exercise}
+	Dlaczego zdefiniowaliśmy przemienne warianty każdej ze struktur, ale nie ciał?
+\end{exercise}
+
+\begin{exercise}
+    Niech $(A, \cdot, e, \mathrm{inv})$ będzie dowolną grupą.
     Udowodnij, że dla każdego $x \in A$ zachodzi ${x^{-1}}^{-1} = x$.
 \end{exercise}
 
+\begin{exercise}
+    Niech $(A, \cdot, e)$ będzie dowolnym monoidem.
+	Niech $y \in A$.
+    Udowodnij, że jeśli dla każdego $x \in A$ zachodzi
+	\begin{equation}
+        yx = x,
+	\end{equation}
+	lub
+	\begin{equation}
+        xy = x,
+	\end{equation}
+    to $y = e$.
+    Pokazuje to,
+		że mając dane działanie,
+		istnieje conajwyżej jeden element neutralny.
+\end{exercise}
 
 \begin{exercise}
-    Niech $(A, \cdot, e, (\cdot^{-1}))$ będzie dowolną grupą.
-    Udowodnij, że jeśli dana jest funkcja $f: A \to A$, spełniająca
-    \begin{equation*}
-        \forall_{x\in A}\; f(x) \cdot x = e = x \cdot f(x),
-    \end{equation*}
-    to $f = (\cdot^{-1})$ (dwie funkcje są równe, jeśli dla każdego argumentu zwracają tę samą wartość).
-    Pokazuje to, że mając dane działanie i element neutralny,
-        istnieje conajwyżej jeden sposób zdefiniowania odwrotności.
+    Niech $(A, \cdot, e, \mathrm{inv})$ będzie dowolną grupą.
+	Niech $x \in A$.
+    Udowodnij, że jeśli dla pewnego $y \in A$ zachodzi
+	\begin{equation}
+        yx = e,
+	\end{equation}
+	lub
+	\begin{equation}
+        xy = e,
+	\end{equation}
+    to $y = \mathrm{inv}(x)$.
+    Pokazuje to,
+		że mając dane działanie i element neutralny,
+        dla każdego elementu istnieje conajwyżej jeden sposób zdefiniowania odwrotności.
 \end{exercise}
 
 \section{Algebra Uniwersalna.}
-Wejdziemy teraz na poziom abstrakcji zwykle niedosięgany przez standardowe wykłady z algebry.
+Wejdziemy teraz na nieco wyższy poziom abstrakcji.
 Szybko jednak zobaczymy,
 że znacząco ułatwi nam to posługiwanie się strukturami,
 które zdefiniowaliśmy.
@@ -253,32 +373,38 @@ Na czym polega problem?
 Poznane przez nas struktury algebraiczne wyglądają wszystkie bardzo podobnie.
 Mamy zbiór, pewne stałe i operacje wykonywane na tym zbiorze.
 Możemy się już domyślać,
-że będziemy mieli wiele bardzo podobnych twierdzeń i definicji dla każdej ze zdefiniowanych struktur.
+	że będziemy mieli wiele bardzo podobnych twierdzeń i definicji dla każdej ze zdefiniowanych struktur.
 
 Przykładowo,
-w algebrze występuje pojęcie \textbf{homomorfizmu}---funkcji $h: A \to B$ między dwoma strukturami tego samego typu (np. między dwoma grupami, dwoma monoidami i t.d.),
-które dodatkowo spełniają pewne warunki.
-Zawsze jednym z nich jest (jeśli $(A, \star, \dots)$ i $(B, \bullet, \dots)$ są jakimiś strukturami)
+	w algebrze występuje pojęcie \textbf{homomorfizmu}---funkcji $h: A \to B$ między dwoma strukturami
+	tego samego typu (np. między dwoma grupami, dwoma monoidami itd.),
+	które dodatkowo spełniają pewne warunki.
+Zwykle jednym z nich jest (jeśli $(A, \star, \dots)$ i $(B, \bullet, \dots)$ są jakimiś strukturami)
 \begin{equation}
 	h(a\star b) = h(a) \bullet h(b).
 \end{equation}
-Ale definicje mają zwykle też więcej wymagań.
-W przypadku monoidów $(A, \star, e_A)$, $(B, \star, e_B)$,
-chcemy aby zachodziło też
+Ale definicje homomorfizmów mają też więcej wymagań.
+W przypadku monoidów $(A, \star, e_A)$, $(B, \star, e_B)$ chcemy aby zachodziło też
 \begin{equation}
 	h(e_A) = e_B.
 \end{equation}
-W przypadku grup podobna własność musi zachodzić dla odwracalności i t.d.
+W przypadku grup podobna własność musi zachodzić też dla odwracalności.
 
 Najczęściej homomorfizmy definiuje się osobno dla każdej struktury.
-W trakcie studiów spotkaliśmy się już z przykładem homomorfizmu---mowa o przekształceniach liniowych (przestrzenie liniowe też są strukturą algebraiczną!).
-Nasuwa się jednak pytanie: czy nie dałoby się uogólnić tego, abyśmy mieli tylko jedną definicję? Chcielibyśmy mieć coś takiej postaci
-
-\noindent \textbf{Definicja}. \textbf{Homomorfizmem} struktur $(A, \dots)$ i $(B, \dots...)$ nazywamy funkcję $h: A \to B$, spełniającą warunki \dots
-
+W trakcie studiów spotkaliśmy się już z przykładem homomorfizmu---mowa o przekształceniach liniowych
+	(przestrzenie liniowe też są strukturą algebraiczną!).
+Nasuwa się jednak pytanie: czy nie dałoby się uogólnić tego,
+	abyśmy mieli tylko jedną definicję?
+Chcielibyśmy mieć coś takiej postaci:
+\\\\
+\noindent \textbf{Definicja}.
+	\textbf{Homomorfizmem} struktur $(A, \dots)$ i $(B, \dots)$ nazywamy funkcję $h: A \to B$,
+	spełniającą warunki \dots
+\\\\
 Ciężko jednak powiedzieć, co należałoby wstawić w miejsce kropek, aby sformalizować tę definicję.
-Podobna sytuacja zachodzi,
-    jeśli zechcemy zacząć definiować \textbf{podgrupy}, \textbf{podciała}, \textbf{podmonoidy} i t.d.
+Podobna sytuacja zajdzie,
+    kiedy zechcemy zacząć definiować
+	\textbf{podprzestrzenie liniowe}, \textbf{podgrupy}, \textbf{podciała}, \textbf{podmonoidy} itd.
 Definicje tych obiektów byłyby do siebie bardzo podobne.
 Jak jednak zawrzeć je wszystkie w jednej definicji?
 Odpowiedzi na te pytania dostarcza nam dziedzina algebry zwana \textit{Algebrą Uniwersalną}.
@@ -287,12 +413,14 @@ Odpowiedzi na te pytania dostarcza nam dziedzina algebry zwana \textit{Algebrą 
 
 \begin{definition}
 	Niech $A$ będzie zbiorem.
-	Mówimy, że funkcja $f: A^n -> A$ ma \textbf{arność} $n$ (z angielskiej końcówki \textit{-ary}, a to z łacińskiej końcówki \textit{-aris}, w analogii do bin\textit{ary}, tern\textit{ary}, i t.d.).
+	Mówimy, że funkcja $f: A^n \to A$ ma \textbf{arność} $n$ (od końcówki \textit{-arny},
+	a to z łacińskiej końcówki \textit{-aris},
+	w analogii do bin\textit{arny}, tern\textit{arny}, itd.).
 \end{definition}
 
-Ciekawa i przydatna rzecz zachodzi, gdy w powyższej definicji $n = 0$.
+Ciekawa i przydatna własność zachodzi, gdy w powyższej definicji $n = 0$.
 Zbiór $A^0$ definiuje się jako zbiór jednoelementowy (co jest tym jednym elementem nie ma znaczenia).
-Funkcja $f:A^0 -> A$ jest więc funkcją ze zbioru jednoelementowego w zbiór $A$.
+Funkcja $f:A^0 \to A$ jest więc funkcją ze zbioru jednoelementowego w zbiór $A$.
 Możemy więc na nią patrzeć jak na pojedynczą stałą (bo zbiór wartości też jest jednoelementowy).
 
 \begin{definition}
@@ -306,22 +434,19 @@ Możemy więc na nią patrzeć jak na pojedynczą stałą (bo zbiór wartości t
 	Parę $(\Sigma, \alpha)$ nazywamy \textbf{sygnaturą} algebry $(\Sigma, \alpha, E)$.
 \end{definition}
 
-Definicja ta nie jest w pełni formalna (czym są ,,symbole"? czym są ,,zmienne"? co znaczy, że elementów $\Sigma$ używamy jako funkcji? jak możemy czemuś, co nie jest funkcją, przypisać arność?).
+Definicja ta nie jest w pełni formalna (czym są ,,symbole"? czym są ,,zmienne"?
+	co znaczy, że elementów $\Sigma$ używamy jako funkcji?
+	jak możemy czemuś, co nie jest funkcją, przypisać arność?).
 Sformalizowanie jej jednak wprowadziłoby więcej zamieszania niż pożytku,
-gdyż wymagałoby wprowadzenia mało istotnych, technicznych szczegółów.
-Zamiast tego pokażemy następujący,
-rozjaśniający przykłady.
+	gdyż wymagałoby wprowadzenia mało istotnych, technicznych szczegółów.
+Zamiast tego przejdziemy rozjaśniającego przykładu.
 
 \begin{example}
 	Trójka $(\Sigma, \alpha, E)$, gdzie
 	\begin{itemize}
 		\item $\Sigma = \{f, g, e\}$,
 		\item $\alpha: f \mapsto 2, g \mapsto 2, e \mapsto 0$,
-		\item E = \{\\
-		      $f(e, x) = x$ \\
-		      $f(x, e) = x$ \\
-		      $g(x, y) = g(y, x)$ \\
-		      \}
+		\item $E = \{g(x, y) = g(y, x), f(e, x) = x, f(x, e) = x\}$
 	\end{itemize}
 	jest algebrą.
 \end{example}
@@ -330,9 +455,13 @@ Jest to nic innego jak definicja pewnej struktury algebraicznej,
 gdzie mamy dwie operacje dwuargumentowe $f, g$ i jedną wyróżnioną stałą $e$,
 że $g$ jest przemienne, a $e$ jest elementem neutralnym dla $f$.
 
-Tłumacząc powyższy zapis na tradycyjne definicje, moglibyśmy napisać następującą definicję.
+Tłumacząc powyższy zapis na tradycyjną definicję, moglibyśmy napisać następująco.
 \begin{definition}
-	\textbf{Zmyślonastrukturą} nazywamy czwórkę $(A, f, g, e)$, gdzie $A$ jest zbiorem, $f, g: A^2 \to A$ są funkcjami dwuargumentowymi, a $e \in A$, że spełnione są następujące warunki:
+	\textbf{Gałganem} nazywamy czwórkę $(A, f, g, e)$,
+		gdzie $A$ jest zbiorem,
+		$f, g: A^2 \to A$ są funkcjami dwuargumentowymi,
+		$e \in A$ (lub, co w pewnym sensie jest równoważne, $e: \{0\} \to A$)
+		i spełnione są następujące warunki:
 	\begin{itemize}
 		\item $\forall_{x\in A}\; f(e, x) = x,$
 		\item $\forall_{x\in A}\; f(x, e) = x,$
@@ -340,7 +469,9 @@ Tłumacząc powyższy zapis na tradycyjne definicje, moglibyśmy napisać nastę
 	\end{itemize}
 \end{definition}
 
-Zwykle zapis będziemy jednak upraszczać, podając jednocześnie zbiór symboli $\Sigma$ i funkcję $\alpha$ za jednym razem, n.p. w postaci
+Zwykle zapis będziemy jednak upraszczać,
+	podając jednocześnie zbiór symboli $\Sigma$ i funkcję $\alpha$ za jednym razem,
+	n.p. w postaci
 \begin{equation}
 	\Sigma = \{f^2, g^2, e\},
 \end{equation}
@@ -358,16 +489,31 @@ Znowu nie jest to całkowicie formalna definicja,
 na nasze potrzeby jednak w pełni wystarczy.
 
 \begin{example}
-	Zbiór $A = \mathbb{R}$ z działaniami $f(x, y) = x + y$, $g(x, y) = xy$ jest modelem zmyślonastruktury.
+	Zbiór $\mathbb{R}$ z działaniami $f(x, y) = x + y$, $g(x, y) = xy$ jest modelem gaugana.
 \end{example}
 
-Możemy teraz definiować nasze struktury w taki sam sposób jak zmyślonastrukturę.
+Możemy teraz definiować nasze struktury w taki sam sposób jak gaugana.
 \begin{definition}
-	\textbf{Monoidem} nazywamy dowolny model algebry $(\{\star^2, e\}, \{ x \star e = x, e \star x = x \})$.
+	\textbf{Monoidem} nazywamy dowolny model algebry
+	\begin{equation*}
+		(\{\star^2, e\}, \{ x \star e = x, e \star x = x \}).
+	\end{equation*}
 \end{definition}
 
 Ważne, aby rozróżniać teraz dwa pojęcia: algebrą jest \textit{definicja} monoidu.
-Modelem algebry jest dowolny \textit{obiekt}, który spełnia tę definicję.
+Modelem algebry jest natomiast dowolny monoid,
+	czyli obiekt,
+	który spełnia tę definicję.
+
+Algebra uniwersalna nie jest jednak taka uniwersalna,
+	jak byśmy chcieli.
+Jedna z podanych przez nas w poprzedniej sekcji definicji nie stanowi algebry.
+Mowa tutaj o ciałach.
+Problemem jest to,
+	że funkcja $\mathrm{inv}$ nie musi być określona dla elementu neutralnego dodawania w ciele.
+Jest to warunek,
+	którego nie da się sformułować używając pojęcia algebry.
+Z tego powodu ciała będziemy musieli traktować osobno od pozostałych struktur.
 
 \subsection{Zadania.}
 
@@ -382,6 +528,9 @@ Modelem algebry jest dowolny \textit{obiekt}, który spełnia tę definicję.
 \end{exercise}
 \begin{exercise}
 	Zapisz definicję grupy abelowej w postaci algebry.
+\end{exercise}
+\begin{exercise}
+	Zapisz definicję pierścienia w postaci algebry.
 \end{exercise}
 
 \section{Pewne definicje związane z algebrami.}
@@ -420,11 +569,23 @@ Zamiast tych pochodzących z francuskiego wyrazów mamy greckie odpowiedniki.
 \begin{definition}
 	Mówimy, że modele $A, B$ algebry $(\Sigma, E)$ są izomorficzne,
 		jeśli istnieje izomorfizm $f: A \to B$.
+	Fakt ten zapisujemy $A \cong B$.
 \end{definition}
 Jeśli dwa modele są izomorficzne, to w pewnym sensie są identyczne---różnią się tylko formą zapisu.
 Poza tym wszystkie algebraiczne własności,
 	które zachodzą w jednym modelu,
 	zachodzą też w drugim.
+W niektórych dziedzinach matematyki izomorficzne modele identyfikuje się tak bardzo,
+	że zamiast używać znaku $A \cong B$ używa się zwykłej równości $=$.
+My jednak zostaniemy przy $\cong$.
+
+\begin{example}
+	$\mathbb{R}$ z dodawaniem jest grupą abelową izomorficzną z grupą $\mathbb{R}^{1 \times 1}$ z dodawaniem macierzy.
+\end{example}
+
+\begin{example}
+	$\mathbb{Z}$ z dodawaniem \textit{nie} jest izomorficzne z $\mathbb{Z}$ z mnożeniem.
+\end{example}
 
 \begin{definition}
     Wolnym modelem algebry $(\Sigma, E)$ generowanym przez zbiór $G$ (tak zwany \textbf{zbiór generatorów}),
@@ -486,6 +647,39 @@ W wolnym monoidzie spełnione jest tylko
 \end{definition}
 
 \subsection{Zadania.}
+
+\begin{exercise}
+	Zapisz definicję homomorfizmu monoidów nie używając pojęć algebry uniwersalnej.
+\end{exercise}
+
+\begin{exercise}
+	Zapisz definicję homomorfizmu grup nie używając pojęć algebry uniwersalnej.
+\end{exercise}
+
+\begin{exercise}
+	Sprawdź, czy następujące funkcje
+	\begin{enumerate}
+		\item $f(x) = 2x$,
+		\item $g(x) = 2 + x$
+		\item $h(x) = x^2$,
+	\end{enumerate}
+	są endomorfizmami w grupie
+	\begin{enumerate}
+		\item $\mathbb{Z}$ z mnożeniem,
+		\item $\mathbb{Z}$ z dodawaniem.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Niech $(A, +), (B, \cdot)$ będą dowolnymi grupmi.
+	Udowodnij,
+		że jeśli $f: A \to B$ jest funkcją spełniającą
+	\begin{equation}
+		f(x + y) = f(x) + f(y)
+	\end{equation}
+	dla każdych $x, y \in A$, to $f$ jest homomorfizmem grup.
+\end{exercise}
+
 \begin{exercise}
 	Niech $A$ będzie grupą abelową, a $B$ dowolną grupą.
 	Udowodnij, że jeśli $f: A \to B$ jest epimorfizmem,
@@ -496,6 +690,21 @@ W wolnym monoidzie spełnione jest tylko
 	Udowodnij, że jeśli $A, B$ są zbiorami i $|A| = |B|$,
 		to grupa wolna nad $A$ i grupa wolna nad $B$ są izomorficzne.
 \end{exercise}
+
+\begin{exercise}
+	Udowodnij, że jeśli $A, B$ są zbiorami i $|A| = |B|$,
+		a $\mathfrak{A} = (\Sigma, E)$ jest dowolną algebrą,
+		to dowolne dwa wolne modele $\mathfrak{A}$ nad odpowiednio $A$ i $B$ są izomorficzne.
+\end{exercise}
+
+\section{Kongruencje.}
+Przejdziemy teraz do nieco bardziej abstrakcyjnego pojęcia,
+	tak zwanych kongruencji.
+Mówiąc nieformalnie,
+	są to relacje równoważności na modelach algebr,
+	które są spójne ze strukturą tych modeli.
+
+
 
 \section{Twierdzenia o homomorfizmach.}
 
