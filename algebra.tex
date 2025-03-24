@@ -30,6 +30,8 @@
 \newtheorem{definition}{Definicja}[section]
 \newtheorem{example}{Przykład}[section]
 \newtheorem{exercise}{Zadanie}[section]
+\newtheorem{lemma}{Lemat}[section]
+\newtheorem{theorem}{Twierdzenie}[section]
 
 \date{MM XX V.}
 \author{Szymon Zyguła.}
@@ -40,8 +42,8 @@
 
 \maketitle
 
+TODO
 \begin{enumerate}
-	\item Kongruencje
 	\item Jądra
 	\item Tw. o homomorfizmach.
 \end{enumerate}
@@ -244,9 +246,8 @@ Tworzą one niezależnie od siebie grupę abelową i monoid,
 \end{example}
 
 \begin{example}
-	Niech $P_n(\mathbb{R})$ będzie zbiorem wielomianów o współczynnikach z $\mathbb{R}$ o
-		stopniu conajwyżej $n$.
-	Wtedy $P_n(\mathbb{R})$ z dodawaniem i mnożeniem wielomianów tworzy pierścień.
+	Niech $P(\mathbb{R})$ będzie zbiorem wielomianów o współczynnikach z $\mathbb{R}$.
+	Wtedy $P(\mathbb{R})$ z dodawaniem i mnożeniem wielomianów tworzy pierścień.
 \end{example}
 
 Dodatkowo możemy zdefiniować,
@@ -535,6 +536,12 @@ Z tego powodu ciała będziemy musieli traktować osobno od pozostałych struktu
 
 \section{Pewne definicje związane z algebrami.}
 
+Wprowadzimy teraz definicje,
+	które dzięki pojęciu algebry będą miały sens dla wszystkich struktur,
+	które są modelami algebr.
+
+\subsection{Podalgebry.}
+
 \begin{definition}
     \textbf{Podmodelem modelu $M$ algebry $(\Sigma, E)$} nazywamy podzbiór $N \subseteq M$,
 		który jest modelem algebry $(\Sigma, E)$ z tymi samymi operacjami co $M$.
@@ -544,12 +551,53 @@ Z tego powodu ciała będziemy musieli traktować osobno od pozostałych struktu
 	$2\mathbb{N}$, czyli liczby parzyste naturalne stanowią podpółgrupę liczb naturalnych z dodawaniem.
 \end{example}
 \begin{example}
-	$\mathbb{Q}$ stanowi podgrupę przemienną grupy $\mathbb{R}$ z mnożeniem.
+	$\mathbb{Q}$ stanowi podgrupę przemienną grupy przemiennej $\mathbb{R}$ z mnożeniem.
 \end{example}
 
+\subsection{Homomorfizmy.}
+
 \begin{definition}
-    \textbf{Homomorfizmem} (lub czasami \textbf{morfizmem}) nazywamy
+    Niech $\mathfrak{A} = (\Sigma, E)$ będzie algebrą.
+	\textbf{Homomorfizmem} (lub \textbf{morfizmem}) modeli $\mathfrak{A}$ nazywamy dowolną funkcję
+		$h: A \to B$, gdzie $A, B$ są dowolnymi modelami $\mathfrak{A}$,
+		i dla każdego symbolu $f^n \in \Sigma$ o arności $n$,
+			któremu w $A$ odpowiada funkcja $f_A: A^n \to A$,
+			a w $B$ funkcja $f_B: B^n \to B$,
+		 zachodzi
+	\begin{equation}
+		\forall_{x_1, \dots, x_n \in A} \; h(f_A(x_1, \dots, x_n)) = f_B(h(x_1), \dots, h(x_n)).
+	\end{equation}
 \end{definition}
+
+\begin{example}
+	Funkcja
+	\begin{align*}
+		&f: \mathbb{Q} \to \mathbb{R},\\
+		&f(x) = 5x,
+	\end{align*}
+	jest homomorfizmem grup $\mathbb{Q}$ i $\mathbb{R}$ z dodawaniem.
+	Rzeczywiście, dla każdych $x, y \in \mathbb{Q}$ mamy
+	\begin{align}
+		5 \cdot (x + y) &= 5x + 5y, \\
+		5 \cdot (-1) &= -5 \cdot 1, \\
+		5 \cdot 0 &= 5 \cdot 0.
+	\end{align}
+\end{example}
+
+\begin{example}
+	Funkcja
+	\begin{align*}
+		&f: \mathbb{R} \to \mathbb{R}, \\
+		&f(x) = \log(x)
+	\end{align*}
+	jest homomorfizmem grup $\mathbb{R}$ z mnożeniem i $\mathbb{R}$ z dodawaniem.
+	Rzeczywiście, dla każdych $x, y \in \mathbb{R}$ mamy
+	\begin{align}
+		\log(x \cdot y) &= \log(x) + \log(y), \\
+		\log(x^{-1}) &= -\log(x), \\
+		\log(1) &= \log(0).
+	\end{align}
+\end{example}
 
 Z pewnych niewyjaśnionych powodów,
     w przypadku homomorfizmów nie używa się pojęć takich jak iniekcja, bijekcja i surjekcja.
@@ -566,10 +614,44 @@ Zamiast tych pochodzących z francuskiego wyrazów mamy greckie odpowiedniki.
     \end{itemize}
 \end{definition}
 
+\begin{lemma}
+	Złożenie homomorfizmów jest homomorfizmem.
+\end{lemma}
+\begin{proof}
+	$\cdots$
+\end{proof}
+
+\begin{lemma}
+	Jeśli $h: A \to B$ jest izomorfizmem dwóch modeli algebry $\mathfrak{A} = (\Sigma, E)$,
+		to funkcja odwrotna $h^{-1}: B \to A$ istnieje i też jest izomorfizmem.
+\end{lemma}
+\begin{proof}
+	Istnienie $h^{-1}$ i to,
+		że jest bijekcją,
+		jest oczywiste z faktu,
+		że $h$ jest bijekcją.
+	Wystarczy więc pokazać,
+		że $h^{-1}$ jest homomorfizmem.
+	Dla dowolnego symbolu $f^n \in \Sigma$ reprezentowanego przez funkcje
+		$f_A: A^n \to A$ i $f_B: B^n \to B$,
+		i dowolnych $x_1, \dots, x_n \in B$ mamy
+	\begin{align}
+		h(f_A(h^{-1}(x_1), \dots, h^{-1}(x_n))) &= \\
+			&= f_B(h(h^{-1}(x_1)), \dots, h(h^{-1}(x_n))) \\
+			&= f_B(x_1, \dots, x_n) \\
+			&= h(h^{-1}(x_1, \dots, x_n)).
+	\end{align}
+	Ale ponieważ $h$ jest iniekcją, to
+	\begin{equation}
+		f_A(h^{-1}(x_1), \dots, h^{-1}(x_n)) = h^{-1}(x_1, \dots, x_n),
+	\end{equation}
+	czyli $h^{-1}$ jest homomorfizmem.
+\end{proof}
+
 \begin{definition}
-	Mówimy, że modele $A, B$ algebry $(\Sigma, E)$ są izomorficzne,
+	Mówimy, że modele $A, B$ algebry $(\Sigma, E)$ są \textbf{izomorficzne},
 		jeśli istnieje izomorfizm $f: A \to B$.
-	Fakt ten zapisujemy $A \cong B$.
+	Fakt ten zapisujemy $A \cong_f B$ lub po prostu $A \cong B$.
 \end{definition}
 Jeśli dwa modele są izomorficzne, to w pewnym sensie są identyczne---różnią się tylko formą zapisu.
 Poza tym wszystkie algebraiczne własności,
@@ -581,11 +663,34 @@ My jednak zostaniemy przy $\cong$.
 
 \begin{example}
 	$\mathbb{R}$ z dodawaniem jest grupą abelową izomorficzną z grupą $\mathbb{R}^{1 \times 1}$ z dodawaniem macierzy.
+	Izomorfizmem jest tu funkcja
+	\begin{align*}
+		&f: \mathbb{R} \to \mathbb{R}^{1 \times 1},\\
+		&f(x) = [x].
+	\end{align*}
 \end{example}
 
 \begin{example}
-	$\mathbb{Z}$ z dodawaniem \textit{nie} jest izomorficzne z $\mathbb{Z}$ z mnożeniem.
+	$\mathbb{Z}$ z dodawaniem \textit{nie} jest izomorficzne z $\mathbb{Z}$ z mnożeniem jako monoid.
 \end{example}
+\begin{proof}
+	Załóżmy przeciwnie,
+		że istnieje izomorfizm $f: \mathbb{Z} \to \mathbb{Z}$.
+	Istnieje więc też odwrotność tego izomorfizmu $f^{-1}$.
+	Mamy więc
+	\begin{align}
+		1 &= \\
+	      &= f(0) \\
+	      &= f(0 + 0) \\
+	      &= f(f^{-1}(1) + f^{-1}(1)) \\
+	      &= f(f^{-1}(1 + 1)) \\
+	      &= f(f^{-1}(2)) \\
+	      &= 2,
+	\end{align}
+	co jest sprzeczne.
+\end{proof}
+
+\subsection{Wolne algebry.}
 
 \begin{definition}
     Wolnym modelem algebry $(\Sigma, E)$ generowanym przez zbiór $G$ (tak zwany \textbf{zbiór generatorów}),
@@ -600,8 +705,8 @@ Mówimy też, że model jest \textit{nad zbiorem $G$}.
 Znowu nie jest to w pełni formalna definicja,
 	jednak bardzo intuicyjnie oddająca istotę wolnych modeli.
 Definicja w pełni formalna wymagałaby albo wprowadzenia pewnych formalnych pojęć,
-	których nie będziemy wprowadzać (ilorazy modeli przez podmodele),
-	albo byłaby bardzo abstrakcyjna.
+	których nie będziemy wprowadzać (np. ilorazy modeli przez podmodele),
+	albo byłaby bardzo abstrakcyjna (pojęcie własności uniwersalnych).
 
 Zwykle jako zbiór $G$ bierze się pewne formalne symbole, czyli jakieś litery.
 
@@ -624,9 +729,14 @@ Najprostsza,
 	które stanowią aksjomaty grupy,
 	oraz te,
 	które można z nich wyprowadzić.
+Podobnie jest dla innych struktur algebraicznych.
 
 \begin{example}
-	$\mathbb{Z}$ wraz z dodawaniem stanowi wolną grupę przemienną nad zbiorem $\{1\}$
+	$\mathbb{Z}$ wraz z dodawaniem stanowi wolną grupę przemienną nad zbiorem $\{1\}$.
+\end{example}
+
+\begin{example}
+	Zbiór skończonych ciągów liczb z $\mathbb{N}$ z konkatenacją stanowi wolny monoid nad $\mathbb{N}$.
 \end{example}
 
 \begin{example}
@@ -636,15 +746,11 @@ Najprostsza,
 		0x = 0
 		\end{equation}
 		czego nie możemy wyprowadzić z aksjomatów grupy przemiennej.
+	Wystarczy podać grupę przemienną,
+		w której nie ma elementu,
+		który działa tak jak $0$ w $\mathbb{Z}$ z mnożeniem.
+	Jest nią przykładowo $\mathbb{Z}$ z dodawaniem.
 \end{example}
-
-Podobnie sprawa ma się z innymi wolnymi modelami algebr.
-W wolnym monoidzie spełnione jest tylko
-	
-
-\begin{definition}
-    Prezentacją modelu
-\end{definition}
 
 \subsection{Zadania.}
 
@@ -681,6 +787,13 @@ W wolnym monoidzie spełnione jest tylko
 \end{exercise}
 
 \begin{exercise}
+	Udowodnij,
+		że jeśli $\mathfrak{A}$ jest algebrą,
+		a $\mathcal{A}$ zbiorem modeli $\mathfrak{A}$,
+		to relacja $\cong$ na elementach $\mathcal{A}$ jest relacją równoważności.
+\end{exercise}
+
+\begin{exercise}
 	Niech $A$ będzie grupą abelową, a $B$ dowolną grupą.
 	Udowodnij, że jeśli $f: A \to B$ jest epimorfizmem,
 		to $B$ jest grupą abelową.
@@ -704,7 +817,54 @@ Mówiąc nieformalnie,
 	są to relacje równoważności na modelach algebr,
 	które są spójne ze strukturą tych modeli.
 
+\begin{definition}
+	Niech $\mathfrak{A} = (\Sigma, E)$ będzie algebrą,
+		$A$ modelem $\mathfrak{A}$,
+		a $\sim$ dowolną relacją równoważności na $A$.
+	Wtedy $\sim$ jest \textbf{kongruencją},
+		jeśli dla każdego symbolu $f^n \in \Sigma$,
+			reprezentującej go funkcji $f: A^n \to A$ i
+			$x_1, \dots, x_n, y \in A$ zachodzi
+	\begin{equation}
+		x_i \sim y \implies f(x_1, \dots, x_i, \dots, x_n) \sim f(x_1, \dots, y, \dots, x_n).
+	\end{equation}
+\end{definition}
 
+Czyli kongruencja jest relacją równoważności,
+	która zachowuje równoważność przy nakładaniu funkcji reprezentujących symbole algebry.
+
+\begin{example}
+	Rozważmy monoid ciągów znaków z konkatenacją.
+	Relacja, która identyfikuje dwa ciągi, jeśli ich długość jest taka sama,
+		jest kongruencją.
+\end{example}
+
+\begin{example}
+	Rozważmy $\mathbb{Z}$ jako pierścień z dodawaniem i mnożeniem.
+	Dla dowolnej liczby $n \in \mathbb{N}$ relacja $\sim$ zdefiniowana przez warunek
+	\begin{equation}
+		\forall_{x, y \in \mathbb{Z}} \; x \sim y \iff x \mod n = y \mod n
+	\end{equation}
+	jest kongruencją.
+\end{example}
+
+\begin{theorem}
+	Niech $\mathfrak{A}$ będzie algebrą,
+		$A$ jej modelem i $\sim$ kongruencją na $A$.
+	Wtedy $A/\sim$ też jest modelem $\mathfrak{A}$.
+\end{theorem}
+
+\begin{definition}
+	\textbf{Jądrem} homomorfizmu $h$ nazywamy relację równoważności określoną wzrorem
+\end{definition}
+
+\begin{lemma}
+	Jądra są kongruencjami.
+\end{lemma}
+
+Jeśli algebra ma element jednostkowy, to jądrem nazywa się też
+
+\subsection{Zadania.}
 
 \section{Twierdzenia o homomorfizmach.}
 
