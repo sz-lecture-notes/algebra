@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 \usepackage{soul} % Strike through
 \usepackage{amsmath}
 \usepackage{ulem}
@@ -34,32 +34,42 @@
 \newtheorem{theorem}{Twierdzenie}[section]
 
 \date{MM XX V.}
-\author{Szymon Zyguła.}
-\title{Podstawy Algebry Abstrakcyjnej.}
+\author{Szymon Paweł Zyguła \& studenci.}
+\title{Podstawy Algebry Abstrakcyiney.}
 
 \begin{document}
 
 \begin{titlepage}
 	\center
-	{\large Szymona Zyguły} \\
+	{\large Szymoná Pawłá Zyguły} \\
 	\vspace{0.5cm}
 	{\red {\Huge PODSTAWY ALGEBRY}} \\
 	\vspace{0.5cm}
 	{\LARGE ABSTRAKCYINEY,}\\
 	\vspace{1cm}
 	{\large ſporządzone dla ſtudentów kierunku Informatyka y Syſtemy Informacyine,
-		ſpecyalność Proiektowanie Syſtemów CAD \& CAM na Politechnice Wárßáwſkiey,
+		ſpecyalność Proiektowanie Syſtemów CAD \& CAM na Polytechnice Wárßáwſkiey,
 		wydziale Mátemátyki y Náuk Informacyinych.} \\
+		\vspace{1cm}
+	{\Large Z dla
+		Boryſá Kurdká,
+		Maxymilianá Michałá Czapſkiego,
+		Zofii Anny Grabowſkiey,
+		Piotrá Kucharczyká,
+		Michałá Okurowſkiego,
+		Filipá Łojká,
+		i Miłoßá Damianá Sobczyká
+		 podziękowániami zá poprawki.} \\
 	\begin{pspicture}(-1.5,-3.5)(1.5,1.5)%
 		\rput[t](0,-1.0){\psvectorian[width=12cm]{71}}
 	\end{pspicture}%
-	\vspace{5cm}
+	\vspace{3cm}
 	\\
 	{\LARGE \red WÁRSZÁWÁ,} \\
 	\vspace{0.5cm}
 	{\Large \textit{cum privilegio.}}\\
-	\begin{pspicture}(-1.5,-1.0)(1.5,0.0)%
-		\rput[t](0,-0.5){\psvectorian[width=7.5cm]{88}}
+	\begin{pspicture}(-1.5,0.0)(1.5,0.0)%
+		\rput[t](0,0){\psvectorian[width=7.5cm]{88}}
 	\end{pspicture}%
 	\vspace{0.5cm}
 	\\
@@ -67,7 +77,9 @@
 	
 \end{titlepage}
 
-\section{Struktury algebraiczne.}
+\tableofcontents
+
+\chapter{Struktury algebraiczne.}
 
 Zajmiemy się teraz zdefiniowaniem tak zwanych \textbf{struktur algebraicznych}.
 Będą to zbiory z działaniami, które spełniają pewne własności.
@@ -75,7 +87,7 @@ Znanym nam już przykładem{\mbox{---}}do którego jednak przejdziemy znacznie p
 
 W tekście zakładamy, że $0 \in \mathbb{N}$.
 
-\subsection{Podstawowe struktury.}
+\section{Podstawowe struktury.}
 
 \begin{definition}
 	\textbf{Magmą} nazywamy parę $(A, \star)$, gdzie $A$ jest zbiorem, a $\star: A^2 \to A$ jest dwuargumentową funkcją na A (nazywaną też działaniem). Działanie $\star$ na $x, y \in A$ zapisujemy $x \star y$.
@@ -98,7 +110,7 @@ Podobny zabieg wykonamy dla wszystkich kolejnych definiowanych przez nas struktu
 \begin{definition}
 	\textbf{Półgrupą} nazywamy magmę $(A, \star)$, że działanie $\star$ jest łączne. To znaczy, że
 	\begin{equation*}
-		\forall_{x,y,z \in A}\; a \star (b \star c) = (a \star b) \star c.
+		\forall_{a,b,c \in A}\; a \star (b \star c) = (a \star b) \star c.
 	\end{equation*}
 \end{definition}
 
@@ -197,7 +209,7 @@ Podobnie jak w przypadku monoidu,
 	to nie będziemy o niej wspominać.
 
 \begin{example}
-	$(\mathbb{Q}, +, 1, (\cdot^{-1}))$ jest grupą.
+	Czwórka $(\mathbb{Q}, +, 0, (-\cdot))$, czyli liczby wymierne z dodawaniem, zerem i negacją, jest grupą.
 \end{example}
 
 \begin{example}
@@ -231,7 +243,7 @@ od nazwiska norweskiego matematyka Nielsa Henrika Abela, 1802--1829.
 \end{example}
 
 \begin{example}
-	$\mathbb{Q}$ z mnożeniem jest grupą abelową.
+	$\mathbb{Q}\setminus\{0\}$ z mnożeniem jest grupą abelową.
 \end{example}
 
 \begin{example}
@@ -277,19 +289,19 @@ Przemienność $+$ jest natomiast wymagana już przez samą definicję pierście
 \begin{definition}
 	\textbf{Ciałem} nazywamy siódemkę $(K, +, 0, \mathrm{neg}, \cdot, 1, \mathrm{inv})$,
 		że $(K, +, 0, \mathrm{neg}, \cdot, 1)$ jest pierścieniem,
-		a $(K \\ \{0\}, \cdot, 1, \mathrm{inv})$ jest grupą abelową.
+		a $(K \setminus \{0\}, \cdot, 1, \mathrm{inv})$ jest grupą abelową.
 \end{definition}
 
 \begin{example}
-	$\mathbb{Q}$ z dodawaniem i dzieleniem tworzy ciało.
+	$\mathbb{Q}$ z dodawaniem i mnożeniem tworzy ciało.
 \end{example}
 
 \begin{example}
-	$\mathbb{R}$ z dodawaniem i dzieleniem tworzy ciało.
+	$\mathbb{R}$ z dodawaniem i mnożeniem tworzy ciało.
 \end{example}
 
 \begin{example}
-	$\mathbb{Z}$ z dodawaniem i dzieleniem \textit{nie} tworzy ciała---w liczbach całkowitych
+	$\mathbb{Z}$ z dodawaniem i mnożeniem \textit{nie} tworzy ciała---w liczbach całkowitych
 		odwrotność względem mnożenia ma tylko $1$.
 \end{example}
 
@@ -298,7 +310,7 @@ Przemienność $+$ jest natomiast wymagana już przez samą definicję pierście
 \begin{exercise}
 	Pokaż, że zbiór macierzy $\mathbb{R}^{2 \times 2}$ z mnożeniem
 		jest magmą, półgrupą, monoidem.
-	Pokaż, że nie jest grupą.
+	Pokaż, że zbiór ten nie jest grupą.
 \end{exercise}
 
 \begin{exercise}
@@ -306,7 +318,7 @@ Przemienność $+$ jest natomiast wymagana już przez samą definicję pierście
 \end{exercise}
 
 \begin{exercise}
-	Sprawdź, czy $(\mathbb{C}, \cdot)$ jest grupą.
+	Sprawdź, czy $(\mathbb{C}, +)$ jest grupą.
 \end{exercise}
 
 \begin{exercise}
@@ -449,7 +461,7 @@ Możemy więc na nią patrzeć jak na pojedynczą stałą (bo zbiór wartości t
 	\begin{itemize}
 		\item $\Sigma$ jest zbiorem, zwanym zbiorem \textbf{symboli},
 		\item $\alpha: \Sigma \to \mathbb{N}$ jest funkcją, która każdemu symbolowi przypisuje arność,
-		\item $E$ jest zbiorem równań używających zmienny i symboli z $\Sigma$ jako funkcji.
+		\item $E$ jest zbiorem równań używających zmiennych i symboli z $\Sigma$ jako funkcji.
 	\end{itemize}
 	Parę $(\Sigma, \alpha)$ nazywamy \textbf{sygnaturą} algebry $(\Sigma, \alpha, E)$.
 \end{definition}
@@ -459,7 +471,7 @@ Definicja ta nie jest w pełni formalna (czym są ,,symbole"? czym są ,,zmienne
 	jak możemy czemuś, co nie jest funkcją, przypisać arność?).
 Sformalizowanie jej jednak wprowadziłoby więcej zamieszania niż pożytku,
 	gdyż wymagałoby wprowadzenia mało istotnych, technicznych szczegółów.
-Zamiast tego przejdziemy rozjaśniającego przykładu.
+Zamiast tego przejdziemy do rozjaśniającego przykładu.
 
 \begin{example}
 	Trójka $(\Sigma, \alpha, E)$, gdzie
@@ -516,7 +528,7 @@ Możemy teraz definiować nasze struktury w taki sam sposób jak gaugana.
 \begin{definition}
 	\textbf{Monoidem} nazywamy dowolny model algebry
 	\begin{equation*}
-		(\{\star^2, e\}, \{ x \star e = x, e \star x = x \}).
+		(\{\star^2, e\}, \{ x \star (y \star z) = (x \star y) \star z, x \star e = x, e \star x = x \}).
 	\end{equation*}
 \end{definition}
 
@@ -570,7 +582,7 @@ Wprowadzimy teraz definicje,
 	$2\mathbb{N}$, czyli liczby parzyste naturalne stanowią podpółgrupę liczb naturalnych z dodawaniem.
 \end{example}
 \begin{example}
-	$\mathbb{Q}$ stanowi podgrupę przemienną grupy przemiennej $\mathbb{R}$ z mnożeniem.
+	$\mathbb{Q} \setminus \{0\}$ stanowi podgrupę przemienną grupy przemiennej $\mathbb{R} \setminus \{0\}$ z mnożeniem.
 \end{example}
 
 \subsection{Homomorfizmy.}
@@ -598,7 +610,7 @@ Wprowadzimy teraz definicje,
 	Rzeczywiście, dla każdych $x, y \in \mathbb{Q}$ mamy
 	\begin{align}
 		5 \cdot (x + y) &= 5x + 5y, \\
-		5 \cdot (-1) &= -5 \cdot 1, \\
+		5 \cdot (-x) &= -(5 \cdot x), \\
 		5 \cdot 0 &= 5 \cdot 0.
 	\end{align}
 \end{example}
@@ -606,11 +618,11 @@ Wprowadzimy teraz definicje,
 \begin{example}
 	Funkcja
 	\begin{align*}
-		&f: \mathbb{R} \to \mathbb{R}, \\
+		&f: \mathbb{R}_+ \to \mathbb{R}, \\
 		&f(x) = \log(x)
 	\end{align*}
-	jest homomorfizmem grup $\mathbb{R}$ z mnożeniem i $\mathbb{R}$ z dodawaniem.
-	Rzeczywiście, dla każdych $x, y \in \mathbb{R}$ mamy
+	jest homomorfizmem grup $\mathbb{R}_+$ z mnożeniem i $\mathbb{R}$ z dodawaniem.
+	Rzeczywiście, dla każdych $x, y \in \mathbb{R}_+$ mamy
 	\begin{align}
 		\log(x \cdot y) &= \log(x) + \log(y), \\
 		\log(x^{-1}) &= -\log(x), \\
@@ -694,7 +706,7 @@ W niektórych dziedzinach matematyki izomorficzne modele identyfikuje się tak b
 My jednak zostaniemy przy $\cong$.
 
 \begin{example}
-	$\mathbb{R}$ z dodawaniem jest grupą abelową izomorficzną z grupą $\mathbb{R}^{1 \times 1}$ z dodawaniem macierzy.
+	$\mathbb{R}$ z dodawaniem jest grupą abelową izomorficzną z grupą abelową $\mathbb{R}^{1 \times 1}$ z dodawaniem macierzy.
 	Izomorfizmem jest tu funkcja
 	\begin{align*}
 		&f: \mathbb{R} \to \mathbb{R}^{1 \times 1},\\
@@ -703,23 +715,24 @@ My jednak zostaniemy przy $\cong$.
 \end{example}
 
 \begin{example}
-	$\mathbb{Z}$ z dodawaniem \textit{nie} jest izomorficzne z $\mathbb{Z}$ z mnożeniem jako monoid.
+$\mathbb{Z}$ z dodawaniem (ozn. $\mathbb{Z}^+$)
+	jako monoid nie jest izomorficzne z $\mathbb{Z}$ z mnożeniem (ozn. $\mathbb{Z}^*$)
+	jako monoid.
 \end{example}
 \begin{proof}
-	Załóżmy przeciwnie,
-		że istnieje izomorfizm $f: \mathbb{Z} \to \mathbb{Z}$.
-	Istnieje więc też odwrotność tego izomorfizmu $f^{-1}$.
-	Mamy więc
-	\begin{align}
-		1 &= \\
-	      &= f(0) \\
-	      &= f(0 + 0) \\
-	      &= f(f^{-1}(1) + f^{-1}(1)) \\
-	      &= f(f^{-1}(1 + 1)) \\
-	      &= f(f^{-1}(2)) \\
-	      &= 2,
-	\end{align}
-	co jest sprzeczne.
+Przypuśćmy, że istnieje izomorfizm $f: \mathbb{Z}^+ \to \mathbb{Z}^*$. Istnieje więc też odwrotność tego izomorfizmu $f^{-1}$, która też jest izomorfizmem. Mamy zatem
+\begin{equation}
+    f^{-1}(1) = 0 = 1 + (-1) = f^{-1}(f(1)) + f^{-1}(f(-1)) = f^{-1}(f(1) \cdot f(-1)).
+\end{equation}
+Skoro $f^{-1}$ jest izomorfizmem, to 
+\begin{equation}
+    1 = f(1) \cdot f(-1), 
+\end{equation}
+więc
+\begin{equation}
+    f(1) = 1 = f(-1) \text{ lub } f(1) = -1 = f(-1).
+\end{equation}
+Wtedy jednak korzystając z tego, że $f$ jest izomorfizmem dostajemy $1 = -1$, co jest sprzecznością.
 \end{proof}
 
 \subsection{Wolne algebry.}
@@ -747,7 +760,7 @@ Zwykle jako zbiór $G$ bierze się pewne formalne symbole, czyli jakieś litery.
 	$e, a, a^{-1}, a^2, a^{-2}, \dots$.
 	Zachodzą w niej m.in. równości
 	\begin{align}
-		aa{^-1} &= e \\
+		aa^{-1} &= e \\
 		eae &= a \\
 		a^{-1}a &= e
 	\end{align}
@@ -801,19 +814,19 @@ Podobnie jest dla innych struktur algebraicznych.
 		\item $g(x) = 2 + x$
 		\item $h(x) = x^2$,
 	\end{enumerate}
-	są endomorfizmami w grupie
+	są endomorfizmami w
 	\begin{enumerate}
-		\item $\mathbb{Z}$ z mnożeniem,
-		\item $\mathbb{Z}$ z dodawaniem.
+		\item monoidzie $\mathbb{Z}$ z mnożeniem,
+		\item grupie $\mathbb{Z}$ z dodawaniem.
 	\end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-	Niech $(A, +), (B, \cdot)$ będą dowolnymi grupmi.
+	Niech $(A, +), (B, \cdot)$ będą dowolnymi grupami.
 	Udowodnij,
 		że jeśli $f: A \to B$ jest funkcją spełniającą
 	\begin{equation}
-		f(x + y) = f(x) + f(y)
+		f(x + y) = f(x) \cdot f(y)
 	\end{equation}
 	dla każdych $x, y \in A$, to $f$ jest homomorfizmem grup.
 \end{exercise}
@@ -834,12 +847,6 @@ Podobnie jest dla innych struktur algebraicznych.
 \begin{exercise}
 	Udowodnij, że jeśli $A, B$ są zbiorami i $|A| = |B|$,
 		to grupa wolna nad $A$ i grupa wolna nad $B$ są izomorficzne.
-\end{exercise}
-
-\begin{exercise}
-	Udowodnij, że jeśli $A, B$ są zbiorami i $|A| = |B|$,
-		a $\mathfrak{A} = (\Sigma, E)$ jest dowolną algebrą,
-		to dowolne dwa wolne modele $\mathfrak{A}$ nad odpowiednio $A$ i $B$ są izomorficzne.
 \end{exercise}
 
 \section{Kongruencje.}
@@ -926,7 +933,7 @@ Czyli kongruencja jest relacją równoważności,
 \end{proof}
 
 \begin{definition}
-	\textbf{Jądrem} homomorfizmu $h: A \to B$ nazywamy relację określoną wzrorem
+	\textbf{Jądrem} homomorfizmu $h: A \to B$ nazywamy relację określoną wzorem
 	\begin{equation}
 		x \equiv_h y \iff h(x) = h(y).
 	\end{equation}
@@ -951,7 +958,7 @@ Na te pytania odpowiemy niedługo.
 		że $\equiv_h$ jest kongruencją.
 
 	Niech $f^n \in \Sigma$ będzie dowolnym symbolem arności $n$,
-		a $f_A$ odpowiadającą mu funkcją na $A$.
+		a $f_A, f_B$ odpowiadającymi mu funkcjami na odpowiednio $A, B$.
 	Weźmy dowolne
 	\begin{equation}
 		x_1 \dots, x_n,\;y_1, \dots, y_n \in A
@@ -970,7 +977,7 @@ Na te pytania odpowiemy niedługo.
 	\end{equation}
 	czyli
 	\begin{equation}
-		f_A(h(x_1), \dots, h(x_n)) = f_A(h(y_1), \dots, h(y_n)),
+		f_B(h(x_1), \dots, h(x_n)) = f_B(h(y_1), \dots, h(y_n)),
 	\end{equation}
 	co z faktu, że $h$ jest homorfizmem daje
 	\begin{equation}
@@ -1119,8 +1126,8 @@ Gotowi jesteśmy teraz,
 		(korzystając tylko z definicji jądra).
 \end{exercise}
 
-\begin{exercise}
-	Niech $h: A \to B$ będzie homomorfizmem.
+\begin{exercise}\label{ex:ker-submodel}
+	Niech $h: A \to B$ będzie homomorfizmem dwóch modeli pewnej algebry.
 	Udowodnij, że $\mathrm{Ker}\,h$ jest podmodelem $A$.
 \end{exercise}
 
@@ -1128,14 +1135,108 @@ Gotowi jesteśmy teraz,
 	Sformułuj i udowodnij przypadek szczególny twierdzenia~\ref{th:isomorphism} dla monoidów.
 \end{exercise}
 
-\section{Przestrzenie liniowe.}
+% TODO: Dodać zadania ,,udowodnij, że ~ jest kongruencją"
+% TODO: Dodać zadania ,,wyznacz jądro XXX"
+
+\chapter{Przestrzenie liniowe.}
+
+Przejdziemy teraz do przestrzeni liniowych.
+Kiedyś będzie tu więcej tekstu.
+
+\section{Definicja przestrzeni liniowej i powiązane definicje.}
+
+% TODO: Przy pomocy algebry uniwersalnej}
+
+\section{Postać Jordana macierzy.}
+
+W tej sekcji zakładamy,
+	że ustalone mamy ciało $\mathbb{K}$,
+	które jest równe $\mathbb{R}o$ lub $\mathbb{C}$.
+
+\begin{definition}
+	\textit{Wektorem własnym} macierzy $A \in \mathbb{K}^{n \times n}$
+		nazywamy wektor $v \in \mathbb{K}^{n \times 1}$,
+		że dla pewnego $\lambda \in \mathbb{K}$
+	\begin{equation}
+		Av = \lambda v.
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	\textit{Wielomianem charakterystycznym} macierzy $A \in \mathbb{K}^{n \times n}$
+		nazywamy wielomian
+	\begin{equation}
+		\chi_A(t) = \det(t I - A).
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	Macierz $A \in \mathbb{K}^{n \times n}$ nazywamy \textit{diagonizowalna},
+		jeśli istnieje macierz odwracalna $X \in \mathbb{K}^{n \times n}$
+		i macierz diagonalna $J \in \mathbb{K}^{n \times n}$,
+		że
+	\begin{equation}
+		A = X J X^{-1}.
+	\end{equation}
+\end{definition}
+
+Załóżmy,
+	że mamy daną macierz $A$.
+
+
+\begin{example}
+	Macierz
+	\begin{equation}
+		A = \left[\begin{matrix}
+		\end{matrix}\right]
+	\end{equation}
+\end{example}
+
+\begin{example}
+	Macierz
+	\begin{equation}
+		A = \left[\begin{matrix}
+		\end{matrix}\right]
+	\end{equation}
+	nie jest diagonalizowalna.
+	
+\end{example}
+
+\begin{definition}
+	Dla dowolnego $m \in \mathbb{Z}_+$ i dowolnego $\lambda \in \mathbb{K}$
+		\textit{klatką Jordana} nazywamy macierz $J_m(\lambda) \in \mathbb{K}^{m \times m}$
+	postaci
+	\begin{equation}
+		J_m(\lambda) = \begin{matrix}
+			\lambda & 1 & 0 & \dots & 0 & 0
+		\end{matrix}
+	\end{equation}
+\end{definition}
+
+\begin{enumerate}
+	\item oblicz wartości własne $A: \lambda_1, \dots, \lambda_k$,
+	\item oblicz krotości algebraiczne $\lambda_1, \dots, \lambda_k$
+		(krotości zer w wielomianie charakterystycznym $A$),
+	\item oblicz krotności geometryczne $\lambda_1, \dots, \lambda_k$
+		(krotność geometryczna $\lambda_i$ to $\dim(\ker(A - \lambda_i I)))$),
+	\item (opcjonalnie) oblicz $\dim((A - \lambda_i I)^2), \dim((A - \lambda_i I)^3), \dim((A - \lambda_i I)^4), \dots$, aż wymiar przestanie się zmieniać.
+\end{enumerate}
+
+\section{Zadania.}
+
+\begin{exercise}
+	Niech $A \in \mathbb{K}^{n \times n}$ będzie macierzą.
+	Udowodnij,
+		że $\chi_A(t)$ jest wielomianem \textit{monicznym},
+		czyli że jego wiodący współczynnik jest równy $1$.
+\end{exercise}
 
 
 \vfill
 \center
 \begin{pspicture}(-1.5,-3.5)(1.5,1.5)%
-\rput(0,0){\Large \textbf{FINIS.}}
-\rput[t](0,-1.0){\psvectorian[width=5cm]{68}}
+	\rput(0,0){\Large \textbf{FINIS.}}
+	\rput[t](0,-1.0){\psvectorian[width=5cm]{68}}
 \end{pspicture}%
 
 \end{document}
