@@ -78,12 +78,22 @@ Wielomian,
 \begin{definition}
 	Macierz $A \in \mathbb{K}^{n \times n}$ nazywamy \textit{diagonizowalna},
 		jeśli istnieje macierz odwracalna $X \in \mathbb{K}^{n \times n}$
-		i macierz diagonalna $J \in \mathbb{K}^{n \times n}$,
+		i macierz diagonalna $D \in \mathbb{K}^{n \times n}$,
 		że
 	\begin{equation}
-		A = X J X^{-1}.
+		A = X D X^{-1}.
 	\end{equation}
 \end{definition}
+Macierz $X$ w powyższym równaniu traktujemy jako macierz zmiany bazy,
+	a o macierzy $D$ mówimy wtedy jako o postaci diagonalnej macierzy $A$.
+Dla danej macierzy $A$ istnieć może wiele różnych postaci diagonalnych!
+Nie są one unikalne.
+
+Zauważmy,
+	że macierz jest diagonalizowalna wtedy i tylko wtedy,
+	gdy ma $n$ wektorów własnych,
+	których zbiór jest liniowo niezależny.
+% TODO: dlaczego?
 
 Załóżmy,
 	że mamy daną macierz $A$.
@@ -120,11 +130,38 @@ Załóżmy,
 		\textit{klatką Jordana} nazywamy macierz $J_m(\lambda) \in \mathbb{K}^{m \times m}$
 	postaci
 	\begin{equation}
-		J_m(\lambda) = \begin{matrix}
-			\lambda & 1 & 0 & \dots & 0 & 0
-		\end{matrix}
+		J_m(\lambda) = \left[\begin{matrix}
+			\lambda & 1 & 0 & \dots & 0 & 0 \\
+			0 & \lambda & 1 & \dots & 0 & 0 \\
+			0 & 0 & \lambda & \ddots & 0 & 0 \\
+			\vdots & \vdots & \ddots & \ddots & 1 & 0 \\
+			0 & 0 & 0 & \dots & \lambda & 1 \\
+			0 & 0 & 0 & \dots & 0 & \lambda
+		\end{matrix}\right].
 	\end{equation}
 \end{definition}
+
+Okazuje się,
+	że nawet jeśli macierz nie jest diagonalizowalna,
+	to zawsze można ją sprowadzić do postaci,
+	która jest prawie diagonalna.
+Postać ta nazywa się postacią Jordana macierzy.
+\begin{definition}
+	Mówimy, że macierz $J$ jest w \textit{postaci Jordana},
+		jeśli jest postaci
+	\begin{equation}
+		J =  \left[\begin{matrix}
+			J_{m_1}(\lambda_1) & \textbf{0} & \dots & \textbf{0} \\
+			\textbf{0} & J_{m_2}(\lambda_2) & \dots & \textbf{0} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			\textbf{0} & \textbf{0} & \dots & J_{m_r}(\lambda_r)
+		\end{matrix}\right],
+	\end{equation}
+	gdzie każdy blok $J_{m_i}(\lambda_i)$ jest klatką Jordana.
+\end{definition}
+Postać normalna nie jest jednak unikalna!
+Dana macierz może mieć kilka różnych postaci Jordana,
+	podobnie jak z postacią diagonalną.
 
 \begin{enumerate}
 	\item oblicz wartości własne $A: \lambda_1, \dots, \lambda_k$,
