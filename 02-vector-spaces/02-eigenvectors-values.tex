@@ -1,4 +1,4 @@
-\section{Postać Jordana macierzy.}
+\section{Wartości własne macierzy.}
 
 W tej sekcji zakładamy,
 	że ustalone mamy ciało $\mathbb{K}$,
@@ -72,7 +72,7 @@ Wielomian,
 	Wyznaczymy wartości własne macierzy $A$ oraz ich krotności.
 \end{example}
 
-% TODO: 0 vs \textbf{0}
+% TODO: 0 v \textbf{0}
 
 
 \begin{definition}
@@ -125,51 +125,19 @@ Załóżmy,
 	
 \end{example}
 
-\begin{definition}
-	Dla dowolnego $m \in \mathbb{Z}_+$ i dowolnego $\lambda \in \mathbb{K}$
-		\textit{klatką Jordana} nazywamy macierz $J_m(\lambda) \in \mathbb{K}^{m \times m}$
-	postaci
-	\begin{equation}
-		J_m(\lambda) = \left[\begin{matrix}
-			\lambda & 1 & 0 & \dots & 0 & 0 \\
-			0 & \lambda & 1 & \dots & 0 & 0 \\
-			0 & 0 & \lambda & \ddots & 0 & 0 \\
-			\vdots & \vdots & \ddots & \ddots & 1 & 0 \\
-			0 & 0 & 0 & \dots & \lambda & 1 \\
-			0 & 0 & 0 & \dots & 0 & \lambda
-		\end{matrix}\right].
-	\end{equation}
-\end{definition}
+% TODO: w postaci diagonalnej na diagonali są wektory własne
 
-Okazuje się,
-	że nawet jeśli macierz nie jest diagonalizowalna,
-	to zawsze można ją sprowadzić do postaci,
-	która jest prawie diagonalna.
-Postać ta nazywa się postacią Jordana macierzy.
-\begin{definition}
-	Mówimy, że macierz $J$ jest w \textit{postaci Jordana},
-		jeśli jest postaci
-	\begin{equation}
-		J =  \left[\begin{matrix}
-			J_{m_1}(\lambda_1) & \textbf{0} & \dots & \textbf{0} \\
-			\textbf{0} & J_{m_2}(\lambda_2) & \dots & \textbf{0} \\
-			\vdots & \vdots & \ddots & \vdots \\
-			\textbf{0} & \textbf{0} & \dots & J_{m_r}(\lambda_r)
-		\end{matrix}\right],
-	\end{equation}
-	gdzie każdy blok $J_{m_i}(\lambda_i)$ jest klatką Jordana.
-\end{definition}
-Postać normalna nie jest jednak unikalna!
-Dana macierz może mieć kilka różnych postaci Jordana,
-	podobnie jak z postacią diagonalną.
+\subsection{Zadania.}
 
-\begin{enumerate}
-	\item oblicz wartości własne $A: \lambda_1, \dots, \lambda_k$,
-	\item oblicz krotości algebraiczne $\lambda_1, \dots, \lambda_k$
-		(krotości zer w wielomianie charakterystycznym $A$),
-	\item oblicz krotności geometryczne $\lambda_1, \dots, \lambda_k$
-		(krotność geometryczna $\lambda_i$ to $\dim(\ker(A - \lambda_i I)))$),
-	\item (opcjonalnie) oblicz $\dim((A - \lambda_i I)^2), \dim((A - \lambda_i I)^3), \dim((A - \lambda_i I)^4), \dots$, aż wymiar przestanie się zmieniać.
-\end{enumerate}
+\begin{exercise}\label{ex:characteristic-eq-is-poly}
+	Niech $A \in \mathbb{K}^{n \times n}$ będzie macierzą.
+	Udowodnij,
+		że $\det(\lambda I - A)$ jest wielomianem z $\lambda$ jako zmienną.
+\end{exercise}
 
-\section{Zadania.}
+\begin{exercise}
+	Niech $A \in \mathbb{K}^{n \times n}$ będzie macierzą.
+	Udowodnij,
+		że $\chi_A(t)$ jest wielomianem \textit{monicznym},
+		czyli że jego wiodący współczynnik jest równy $1$.
+\end{exercise}
