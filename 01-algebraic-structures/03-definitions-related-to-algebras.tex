@@ -1,0 +1,284 @@
+\section{Pewne definicje związane z algebrami.}
+
+Wprowadzimy teraz definicje,
+	które dzięki pojęciu algebry będą miały sens dla wszystkich struktur,
+	które są modelami algebr.
+
+\subsection{Podalgebry.}
+
+\begin{definition}
+    \textbf{Podmodelem modelu $M$ algebry $(\Sigma, E)$} nazywamy podzbiór $N \subseteq M$,
+		który jest modelem algebry $(\Sigma, E)$ z tymi samymi operacjami co $M$.
+\end{definition}
+
+\begin{example}
+	$2\mathbb{N}$, czyli liczby parzyste naturalne stanowią podpółgrupę liczb naturalnych z dodawaniem.
+\end{example}
+\begin{example}
+	$\mathbb{Q} \setminus \{0\}$ stanowi podgrupę przemienną grupy przemiennej $\mathbb{R} \setminus \{0\}$ z mnożeniem.
+\end{example}
+
+\subsection{Homomorfizmy.}
+
+\begin{definition}
+    Niech $\mathfrak{A} = (\Sigma, E)$ będzie algebrą.
+	\textbf{Homomorfizmem} (lub \textbf{morfizmem}) modeli $\mathfrak{A}$ nazywamy dowolną funkcję
+		$h: A \to B$, gdzie $A, B$ są dowolnymi modelami $\mathfrak{A}$,
+		i dla każdego symbolu $f^n \in \Sigma$ o arności $n$,
+			któremu w $A$ odpowiada funkcja $f_A: A^n \to A$,
+			a w $B$ funkcja $f_B: B^n \to B$,
+		 zachodzi
+	\begin{equation}
+		\forall_{x_1, \dots, x_n \in A} \; h(f_A(x_1, \dots, x_n)) = f_B(h(x_1), \dots, h(x_n)).
+	\end{equation}
+\end{definition}
+
+\begin{example}
+	Funkcja
+	\begin{align*}
+		&f: \mathbb{Q} \to \mathbb{R},\\
+		&f(x) = 5x,
+	\end{align*}
+	jest homomorfizmem grup $\mathbb{Q}$ i $\mathbb{R}$ z dodawaniem.
+	Rzeczywiście, dla każdych $x, y \in \mathbb{Q}$ mamy
+	\begin{align}
+		5 \cdot (x + y) &= 5x + 5y, \\
+		5 \cdot (-x) &= -(5 \cdot x), \\
+		5 \cdot 0 &= 5 \cdot 0.
+	\end{align}
+\end{example}
+
+\begin{example}
+	Funkcja
+	\begin{align*}
+		&f: \mathbb{R}_+ \to \mathbb{R}, \\
+		&f(x) = \log(x)
+	\end{align*}
+	jest homomorfizmem grup $\mathbb{R}_+$ z mnożeniem i $\mathbb{R}$ z dodawaniem.
+	Rzeczywiście, dla każdych $x, y \in \mathbb{R}_+$ mamy
+	\begin{align}
+		\log(x \cdot y) &= \log(x) + \log(y), \\
+		\log(x^{-1}) &= -\log(x), \\
+		\log(1) &= 0.
+	\end{align}
+\end{example}
+
+Z pewnych niewyjaśnionych powodów,
+    w przypadku homomorfizmów nie używa się pojęć takich jak iniekcja, bijekcja i surjekcja.
+Zamiast tych pochodzących z francuskiego wyrazów mamy greckie odpowiedniki.
+
+\begin{definition}
+    Homomorfizm nazywamy
+    \begin{itemize}
+        \item \textbf{epimorfizmem}, jeśli jest surjekcją,
+        \item \textbf{monomorfizmem}, jeśli jest iniekcją,
+        \item \textbf{izomorfizmem}, jeśli jest bijekcją,
+        \item \textbf{endomorfizmem}, jeśli jego dziedzina i kodziedzina są równe, t.j. jest postaci $h:A \to A$,
+        \item \textbf{automorfizmem}, jeśli jest endomorfizmem i izomorfizmem.
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+	Niech $\mathfrak{A} = (\Sigma, E)$ będzie algebrą.
+	Niech $A, B, C$ będą modelami $\mathfrak{A}$,
+		a $h: A \to B$, $g: B \to C$ homomorfizmami tych modeli.
+	Wtedy $g \circ h: A \to C$ jest homomorfizmem.
+\end{lemma}
+\begin{proof}
+	Niech $f^n \in \Sigma$ będzie $n$-arnym symbolem,
+		a $f_A, f_B, f_C$ odpowiadającymi mu funkcjami w odpowiednio $A, B, C$.
+	Mamy teraz dla dowolnych $x_1, \dots, x_n \in A$
+	\begin{align}
+		(g \circ h)(f_A(x_1, \dots, x_n)) &= \\
+			&= g(h(f_A(x_1, \dots, x_n)) \\
+			&= g(f_B(h(x_1), \dots, h(x_n))) \\
+			&= f_C(g(h(x_1)), \dots, g(h(x_n)))) \\
+			&= f_C((g \circ h)(x_1), \dots, (g \circ h)(x_n)))),
+\end{align}
+	co pokazuje, że $(g \circ h)$ jest homomorfizmem.
+\end{proof}
+
+\begin{lemma}
+	Jeśli $h: A \to B$ jest izomorfizmem dwóch modeli algebry $\mathfrak{A} = (\Sigma, E)$,
+		to funkcja odwrotna $h^{-1}: B \to A$ istnieje i też jest izomorfizmem.
+\end{lemma}
+\begin{proof}
+	Istnienie $h^{-1}$ i to,
+		że jest bijekcją,
+		jest oczywiste z faktu,
+		że $h$ jest bijekcją.
+	Wystarczy więc pokazać,
+		że $h^{-1}$ jest homomorfizmem.
+	Dla dowolnego symbolu $f^n \in \Sigma$ reprezentowanego przez funkcje
+		$f_A: A^n \to A$ i $f_B: B^n \to B$,
+		i dowolnych $x_1, \dots, x_n \in B$ mamy
+	\begin{align}
+		h(f_A(h^{-1}(x_1), \dots, h^{-1}(x_n))) &= \\
+			&= f_B(h(h^{-1}(x_1)), \dots, h(h^{-1}(x_n))) \\
+			&= f_B(x_1, \dots, x_n) \\
+			&= h(h^{-1}(f_B(x_1, \dots, x_n))).
+	\end{align}
+	Ale ponieważ $h$ jest iniekcją, to
+	\begin{equation}
+		f_A(h^{-1}(x_1), \dots, h^{-1}(x_n)) = h^{-1}(f_B(x_1, \dots, x_n)),
+	\end{equation}
+	czyli $h^{-1}$ jest homomorfizmem.
+\end{proof}
+
+\begin{definition}
+	Mówimy, że modele $A, B$ algebry $(\Sigma, E)$ są \textbf{izomorficzne},
+		jeśli istnieje izomorfizm $f: A \to B$.
+	Fakt ten zapisujemy $A \cong_f B$ lub po prostu $A \cong B$.
+\end{definition}
+Jeśli dwa modele są izomorficzne, to w pewnym sensie są identyczne---różnią się tylko formą zapisu.
+Poza tym wszystkie algebraiczne własności,
+	które zachodzą w jednym modelu,
+	zachodzą też w drugim.
+W niektórych dziedzinach matematyki izomorficzne modele identyfikuje się tak bardzo,
+	że zamiast używać znaku $A \cong B$ używa się zwykłej równości $=$.
+My jednak zostaniemy przy $\cong$.
+
+\begin{example}
+	$\mathbb{R}$ z dodawaniem jest grupą abelową izomorficzną z grupą abelową $\mathbb{R}^{1 \times 1}$ z dodawaniem macierzy.
+	Izomorfizmem jest tu funkcja
+	\begin{align*}
+		&f: \mathbb{R} \to \mathbb{R}^{1 \times 1},\\
+		&f(x) = [x].
+	\end{align*}
+\end{example}
+
+\begin{example}
+$\mathbb{Z}$ z dodawaniem (ozn. $\mathbb{Z}^+$)
+	jako monoid nie jest izomorficzne z $\mathbb{Z}$ z mnożeniem (ozn. $\mathbb{Z}^*$)
+	jako monoid.
+\end{example}
+\begin{proof}
+Przypuśćmy, że istnieje izomorfizm $f: \mathbb{Z}^+ \to \mathbb{Z}^*$. Istnieje więc też odwrotność tego izomorfizmu $f^{-1}$, która też jest izomorfizmem. Mamy zatem
+\begin{equation}
+    f^{-1}(1) = 0 = 1 + (-1) = f^{-1}(f(1)) + f^{-1}(f(-1)) = f^{-1}(f(1) \cdot f(-1)).
+\end{equation}
+Skoro $f^{-1}$ jest izomorfizmem, to 
+\begin{equation}
+    1 = f(1) \cdot f(-1), 
+\end{equation}
+więc
+\begin{equation}
+    f(1) = 1 = f(-1) \text{ lub } f(1) = -1 = f(-1).
+\end{equation}
+Wtedy jednak korzystając z tego, że $f$ jest izomorfizmem dostajemy $1 = -1$, co jest sprzecznością.
+\end{proof}
+
+\subsection{Wolne algebry.}
+
+\begin{definition}
+    Wolnym modelem algebry $(\Sigma, E)$ generowanym przez zbiór $G$ (tak zwany \textbf{zbiór generatorów}),
+    nazywamy model algebry $(\Sigma, E)$, którego nośnikiem jest zbiór wszystkich wyrażeń,
+		które utworzyć możemy z elementów $\Sigma$ i $G$, traktują elementy $\Sigma$ jak
+		funkcje z odpowiednimi arnościami.
+	Dodatkowo,
+		dwa wyrażenia uznajemy za równe,
+		jeśli jedno możemy przekształcić w drugie używając równań z $E$.
+\end{definition}
+Mówimy też, że model jest \textit{nad zbiorem $G$}.
+Znowu nie jest to w pełni formalna definicja,
+	jednak bardzo intuicyjnie oddająca istotę wolnych modeli.
+Definicja w pełni formalna wymagałaby albo wprowadzenia pewnych formalnych pojęć,
+	których nie będziemy wprowadzać (np. ilorazy modeli przez podmodele),
+	albo byłaby bardzo abstrakcyjna (pojęcie własności uniwersalnych).
+
+Zwykle jako zbiór $G$ bierze się pewne formalne symbole, czyli jakieś litery.
+
+\begin{example}
+	Grupą wolną na zbiorze $\{a\}$ nazywamy grupę, której elementami są
+	$e, a, a^{-1}, a^2, a^{-2}, \dots$.
+	Zachodzą w niej m.in. równości
+	\begin{align}
+		aa^{-1} &= e \\
+		eae &= a \\
+		a^{-1}a &= e
+	\end{align}
+\end{example}
+
+W pewnym sensie grupą wolną na zbiorze $G$ jest najprostrza grupa,
+	która zawiera całe $G$ jako swoje elementy.
+Najprostsza,
+	bo nie zachodzą w niej inne równania,
+	niż te,
+	które stanowią aksjomaty grupy,
+	oraz te,
+	które można z nich wyprowadzić.
+Podobnie jest dla innych struktur algebraicznych.
+
+\begin{example}
+	$\mathbb{Z}$ wraz z dodawaniem stanowi wolną grupę przemienną nad zbiorem $\{1\}$.
+\end{example}
+
+\begin{example}
+	Zbiór skończonych ciągów liczb z $\mathbb{N}$ z konkatenacją stanowi wolny monoid nad $\mathbb{N}$.
+\end{example}
+
+\begin{example}
+	$\mathbb{Z}$ wraz z mnożeniem nie stanowi wolnej grupy przemiennej,
+		bo dla dowolnego elementu $x$ mamy
+		\begin{equation}
+		0x = 0
+		\end{equation}
+		czego nie możemy wyprowadzić z aksjomatów grupy przemiennej.
+	Wystarczy podać grupę przemienną,
+		w której nie ma elementu,
+		który działa tak jak $0$ w $\mathbb{Z}$ z mnożeniem.
+	Jest nią przykładowo $\mathbb{Z}$ z dodawaniem.
+\end{example}
+
+\subsection{Zadania.}
+
+\begin{exercise}
+	Zapisz definicję homomorfizmu monoidów nie używając pojęć algebry uniwersalnej.
+\end{exercise}
+
+\begin{exercise}
+	Zapisz definicję homomorfizmu grup nie używając pojęć algebry uniwersalnej.
+\end{exercise}
+
+\begin{exercise}
+	Sprawdź, czy następujące funkcje
+	\begin{enumerate}
+		\item $f(x) = 2x$,
+		\item $g(x) = 2 + x$
+		\item $h(x) = x^2$,
+	\end{enumerate}
+	są endomorfizmami w
+	\begin{enumerate}
+		\item monoidzie $\mathbb{Z}$ z mnożeniem,
+		\item grupie $\mathbb{Z}$ z dodawaniem.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Niech $(A, +), (B, \cdot)$ będą dowolnymi grupami.
+	Udowodnij,
+		że jeśli $f: A \to B$ jest funkcją spełniającą
+	\begin{equation}
+		f(x + y) = f(x) \cdot f(y)
+	\end{equation}
+	dla każdych $x, y \in A$, to $f$ jest homomorfizmem grup.
+\end{exercise}
+
+\begin{exercise}
+	Udowodnij,
+		że jeśli $\mathfrak{A}$ jest algebrą,
+		a $\mathcal{A}$ zbiorem modeli $\mathfrak{A}$,
+		to relacja $\cong$ na elementach $\mathcal{A}$ jest relacją równoważności.
+\end{exercise}
+
+\begin{exercise}
+	Niech $A$ będzie grupą abelową, a $B$ dowolną grupą.
+	Udowodnij, że jeśli $f: A \to B$ jest epimorfizmem,
+		to $B$ jest grupą abelową.
+\end{exercise}
+
+\begin{exercise}
+	Udowodnij, że jeśli $A, B$ są zbiorami i $|A| = |B|$,
+		to grupa wolna nad $A$ i grupa wolna nad $B$ są izomorficzne.
+\end{exercise}
+

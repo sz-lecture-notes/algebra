@@ -1,0 +1,138 @@
+\section{Postać Jordana macierzy.}
+
+W tej sekcji zakładamy,
+	że ustalone mamy ciało $\mathbb{K}$,
+	które jest równe $\mathbb{R}o$ lub $\mathbb{C}$.
+
+\begin{definition}
+	\textit{Wektorem własnym} macierzy $A \in \mathbb{K}^{n \times n}$
+		nazywamy niezerowy wektor $v \in \mathbb{K}^{n \times 1}$,
+		że dla pewnego $\lambda \in \mathbb{K}$
+	\begin{equation}
+		Av = \lambda v.
+	\end{equation}
+	$\lambda$ nazywamy \textit{wartością własną} odpowiadającą wektorowi własnemu $v$.
+\end{definition}
+
+Załóżmy,
+	że daną mamy macierz $A in \mathbb{K}^{n \times n}$
+	i chcemy wyznaczyć jej wektory i wartości własne.
+Jak możemy to zrobić?
+Przekształćmy równanie definiujące te pojęcia.
+\begin{align}
+	Av = \lambda v, \\
+	\textbf{0} = \lambda v - Av, \\
+	\textbf{0} = \lambda I v - Av, \\
+	\textbf{0} = (\lambda I - A) v.
+\end{align}
+Oznacza to,
+	że $v$ jest wektorem własnym macierzy $A$ z odpowiadającą mu wartością własną $\lambda$
+	wtedy i tylko wtedy gdy $(\lambda I - A) v = \textbf{0}$,
+	czyli wtedy i tylko wtedy gdy $v \in \ker(\lambda I - A)$.
+
+Skoro interesują nas tylko takie $v$,
+	które są niezerowe,
+	to warunek ten może być spełniony wtedy i tylko wtedy,
+	gdy jądro $\ker(\lambda I - A)$ jest nietrywialne.
+Zachodzi to dokładnie wtedy,
+	gdy $A - \lambda I$ jest macierzą nieodwracalną,
+	czyli
+\begin{equation}\label{eq:eigen-condition}
+	\det(\ker(\lambda I - A)) = 0.
+\end{equation}
+
+Aby wyznaczyć wartości własne $A$ musimy więc sprawdzić,
+	dla jakich $\lambda \in \mathbb{K}$ spełnione jest równanie \ref{eq:eigen-condition}.
+Okazuje się to dość proste, gdyż zawsze jest to równanie wielomianowe (zadanie \ref{ex:characteristic-eq-is-poly})
+Kiedy to ustalimy,
+	wyznaczyć możemy $\ker(A - \lambda I)$.
+Każdy wektor w tej przestrzeni liniowej będzie wektorem własnym $A$.
+Wielomian,
+	który pojawia się w tym równaniu ma swoją specjalną nazwę.
+
+\begin{definition}
+	\textit{Wielomianem charakterystycznym} macierzy $A \in \mathbb{K}^{n \times n}$
+		nazywamy wielomian
+	\begin{equation}
+		\chi_A(t) = \det(t I - A).
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	Krotnością algebraiczną wartości własnej $\lambda$ macierzy $A \in \mathbb{K}^{n \times n}$
+		nazywamy krotność pierwiastka $\lambda$ wielomianu $\chi_A(\lambda)$.
+\end{definition}
+
+\begin{example}
+	Niech
+	\begin{equation}
+		A = \left[\begin{matrix}
+		\end{matrix}\right].
+	\end{equation}
+	Wyznaczymy wartości własne macierzy $A$ oraz ich krotności.
+\end{example}
+
+% TODO: 0 vs \textbf{0}
+
+
+\begin{definition}
+	Macierz $A \in \mathbb{K}^{n \times n}$ nazywamy \textit{diagonizowalna},
+		jeśli istnieje macierz odwracalna $X \in \mathbb{K}^{n \times n}$
+		i macierz diagonalna $J \in \mathbb{K}^{n \times n}$,
+		że
+	\begin{equation}
+		A = X J X^{-1}.
+	\end{equation}
+\end{definition}
+
+Załóżmy,
+	że mamy daną macierz $A$.
+
+
+\begin{example}
+	Macierz
+	\begin{equation}
+		A = \left[\begin{matrix}
+			1 & 1 & 0 \\
+			1 & 1 & 0 \\
+			0 & 0 & 2
+		\end{matrix}\right]
+	\end{equation}
+	jest diagonizowalna.
+	Wyznaczmy jej wartości własne.
+\end{example}
+
+\begin{example}
+	Macierz
+	\begin{equation}
+		A = \left[\begin{matrix}
+			2 & 1 & 0 \\
+			0 & 2 & 1 \\
+			0 & 0 & 2
+		\end{matrix}\right]
+	\end{equation}
+	nie jest diagonalizowalna.
+	
+\end{example}
+
+\begin{definition}
+	Dla dowolnego $m \in \mathbb{Z}_+$ i dowolnego $\lambda \in \mathbb{K}$
+		\textit{klatką Jordana} nazywamy macierz $J_m(\lambda) \in \mathbb{K}^{m \times m}$
+	postaci
+	\begin{equation}
+		J_m(\lambda) = \begin{matrix}
+			\lambda & 1 & 0 & \dots & 0 & 0
+		\end{matrix}
+	\end{equation}
+\end{definition}
+
+\begin{enumerate}
+	\item oblicz wartości własne $A: \lambda_1, \dots, \lambda_k$,
+	\item oblicz krotości algebraiczne $\lambda_1, \dots, \lambda_k$
+		(krotości zer w wielomianie charakterystycznym $A$),
+	\item oblicz krotności geometryczne $\lambda_1, \dots, \lambda_k$
+		(krotność geometryczna $\lambda_i$ to $\dim(\ker(A - \lambda_i I)))$),
+	\item (opcjonalnie) oblicz $\dim((A - \lambda_i I)^2), \dim((A - \lambda_i I)^3), \dim((A - \lambda_i I)^4), \dots$, aż wymiar przestanie się zmieniać.
+\end{enumerate}
+
+\section{Zadania.}

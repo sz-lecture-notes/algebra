@@ -1,0 +1,170 @@
+\section{Algebra Uniwersalna.}
+Wejdziemy teraz na nieco wyższy poziom abstrakcji.
+Szybko jednak zobaczymy,
+że znacząco ułatwi nam to posługiwanie się strukturami,
+które zdefiniowaliśmy.
+
+Na czym polega problem?
+Poznane przez nas struktury algebraiczne wyglądają wszystkie bardzo podobnie.
+Mamy zbiór, pewne stałe i operacje wykonywane na tym zbiorze.
+Możemy się już domyślać,
+	że będziemy mieli wiele bardzo podobnych twierdzeń i definicji dla każdej ze zdefiniowanych struktur.
+
+Przykładowo,
+	w algebrze występuje pojęcie \textbf{homomorfizmu}---funkcji $h: A \to B$ między dwoma strukturami
+	tego samego typu (np. między dwoma grupami, dwoma monoidami itd.),
+	które dodatkowo spełniają pewne warunki.
+Zwykle jednym z nich jest (jeśli $(A, \star, \dots)$ i $(B, \bullet, \dots)$ są jakimiś strukturami)
+\begin{equation}
+	h(a\star b) = h(a) \bullet h(b).
+\end{equation}
+Ale definicje homomorfizmów mają też więcej wymagań.
+W przypadku monoidów $(A, \star, e_A)$, $(B, \star, e_B)$ chcemy aby zachodziło też
+\begin{equation}
+	h(e_A) = e_B.
+\end{equation}
+W przypadku grup podobna własność musi zachodzić też dla odwracalności.
+
+Najczęściej homomorfizmy definiuje się osobno dla każdej struktury.
+W trakcie studiów spotkaliśmy się już z przykładem homomorfizmu---mowa o przekształceniach liniowych
+	(przestrzenie liniowe też są strukturą algebraiczną!).
+Nasuwa się jednak pytanie: czy nie dałoby się uogólnić tego,
+	abyśmy mieli tylko jedną definicję?
+Chcielibyśmy mieć coś takiej postaci:
+\\\\
+\noindent \textbf{Definicja}.
+	\textbf{Homomorfizmem} struktur $(A, \dots)$ i $(B, \dots)$ nazywamy funkcję $h: A \to B$,
+	spełniającą warunki \dots
+\\\\
+Ciężko jednak powiedzieć, co należałoby wstawić w miejsce kropek, aby sformalizować tę definicję.
+Podobna sytuacja zajdzie,
+    kiedy zechcemy zacząć definiować
+	\textbf{podprzestrzenie liniowe}, \textbf{podgrupy}, \textbf{podciała}, \textbf{podmonoidy} itd.
+Definicje tych obiektów byłyby do siebie bardzo podobne.
+Jak jednak zawrzeć je wszystkie w jednej definicji?
+Odpowiedzi na te pytania dostarcza nam dziedzina algebry zwana \textit{Algebrą Uniwersalną}.
+
+\subsection{Podstawowe definicje.}
+
+\begin{definition}
+	Niech $A$ będzie zbiorem.
+	Mówimy, że funkcja $f: A^n \to A$ ma \textbf{arność} $n$ (od końcówki \textit{-arny},
+	a to z łacińskiej końcówki \textit{-aris},
+	w analogii do bin\textit{arny}, tern\textit{arny}, itd.).
+\end{definition}
+
+Ciekawa i przydatna własność zachodzi, gdy w powyższej definicji $n = 0$.
+Zbiór $A^0$ definiuje się jako zbiór jednoelementowy (co jest tym jednym elementem nie ma znaczenia).
+Funkcja $f:A^0 \to A$ jest więc funkcją ze zbioru jednoelementowego w zbiór $A$.
+Możemy więc na nią patrzeć jak na pojedynczą stałą (bo zbiór wartości też jest jednoelementowy).
+
+\begin{definition}
+	\textbf{Algebrą} nazywamy trójkę $(\Sigma, \alpha, E)$,
+	gdzie
+	\begin{itemize}
+		\item $\Sigma$ jest zbiorem, zwanym zbiorem \textbf{symboli},
+		\item $\alpha: \Sigma \to \mathbb{N}$ jest funkcją, która każdemu symbolowi przypisuje arność,
+		\item $E$ jest zbiorem równań używających zmiennych i symboli z $\Sigma$ jako funkcji.
+	\end{itemize}
+	Parę $(\Sigma, \alpha)$ nazywamy \textbf{sygnaturą} algebry $(\Sigma, \alpha, E)$.
+\end{definition}
+
+Definicja ta nie jest w pełni formalna (czym są ,,symbole"? czym są ,,zmienne"?
+	co znaczy, że elementów $\Sigma$ używamy jako funkcji?
+	jak możemy czemuś, co nie jest funkcją, przypisać arność?).
+Sformalizowanie jej jednak wprowadziłoby więcej zamieszania niż pożytku,
+	gdyż wymagałoby wprowadzenia mało istotnych, technicznych szczegółów.
+Zamiast tego przejdziemy do rozjaśniającego przykładu.
+
+\begin{example}
+	Trójka $(\Sigma, \alpha, E)$, gdzie
+	\begin{itemize}
+		\item $\Sigma = \{f, g, e\}$,
+		\item $\alpha: f \mapsto 2, g \mapsto 2, e \mapsto 0$,
+		\item $E = \{g(x, y) = g(y, x), f(e, x) = x, f(x, e) = x\}$
+	\end{itemize}
+	jest algebrą.
+\end{example}
+Jak możemy interpretować, czym jest taka algebra?
+Jest to nic innego jak definicja pewnej struktury algebraicznej,
+gdzie mamy dwie operacje dwuargumentowe $f, g$ i jedną wyróżnioną stałą $e$,
+że $g$ jest przemienne, a $e$ jest elementem neutralnym dla $f$.
+
+Tłumacząc powyższy zapis na tradycyjną definicję, moglibyśmy napisać następująco.
+\begin{definition}
+	\textbf{Gałganem} nazywamy czwórkę $(A, f, g, e)$,
+		gdzie $A$ jest zbiorem,
+		$f, g: A^2 \to A$ są funkcjami dwuargumentowymi,
+		$e \in A$ (lub, co w pewnym sensie jest równoważne, $e: \{0\} \to A$)
+		i spełnione są następujące warunki:
+	\begin{itemize}
+		\item $\forall_{x\in A}\; f(e, x) = x,$
+		\item $\forall_{x\in A}\; f(x, e) = x,$
+		\item $\forall_{x,y\in A}\; g(x, y) = g(y, x).$
+	\end{itemize}
+\end{definition}
+
+Zwykle zapis będziemy jednak upraszczać,
+	podając jednocześnie zbiór symboli $\Sigma$ i funkcję $\alpha$ za jednym razem,
+	n.p. w postaci
+\begin{equation}
+	\Sigma = \{f^2, g^2, e\},
+\end{equation}
+t.j. podając w definicji symboli ich arność w indeksie górnym, i pomijając ją dla $0$.
+Idąc tą konwencją będziemy też zamiast $(\Sigma, \alpha, E)$ pisać $(\Sigma, E)$.
+
+Algebry odpowiadają więc definicjom struktur.
+Co odpowiada jednak obiektom, spełniającym te definicje?
+
+\begin{definition}
+    \textbf{Modelem algebry} $(\Sigma, \alpha, E)$ nazywamy zbiór $A$ (zwany \textbf{nośnikiem}),
+	wraz z interpretacją symboli z $\Sigma$ jako funkcje o arnościach definiowanych przez $\alpha$ i spełniających równania $E$.
+\end{definition}
+Znowu nie jest to całkowicie formalna definicja,
+na nasze potrzeby jednak w pełni wystarczy.
+
+\begin{example}
+	Zbiór $\mathbb{R}$ z działaniami $f(x, y) = x + y$, $g(x, y) = xy$ jest modelem gaugana.
+\end{example}
+
+Możemy teraz definiować nasze struktury w taki sam sposób jak gaugana.
+\begin{definition}
+	\textbf{Monoidem} nazywamy dowolny model algebry
+	\begin{equation*}
+		(\{\star^2, e\}, \{ x \star (y \star z) = (x \star y) \star z, x \star e = x, e \star x = x \}).
+	\end{equation*}
+\end{definition}
+
+Ważne, aby rozróżniać teraz dwa pojęcia: algebrą jest \textit{definicja} monoidu.
+Modelem algebry jest natomiast dowolny monoid,
+	czyli obiekt,
+	który spełnia tę definicję.
+
+Algebra uniwersalna nie jest jednak taka uniwersalna,
+	jak byśmy chcieli.
+Jedna z podanych przez nas w poprzedniej sekcji definicji nie stanowi algebry.
+Mowa tutaj o ciałach.
+Problemem jest to,
+	że funkcja $\mathrm{inv}$ nie musi być określona dla elementu neutralnego dodawania w ciele.
+Jest to warunek,
+	którego nie da się sformułować używając pojęcia algebry.
+Z tego powodu ciała będziemy musieli traktować osobno od pozostałych struktur.
+
+\subsection{Zadania.}
+
+\begin{exercise}
+	Zapisz definicję magmy w postaci algebry.
+\end{exercise}
+\begin{exercise}
+	Zapisz definicję półgrupy w postaci algebry.
+\end{exercise}
+\begin{exercise}
+	Zapisz definicję grupy w postaci algebry.
+\end{exercise}
+\begin{exercise}
+	Zapisz definicję grupy abelowej w postaci algebry.
+\end{exercise}
+\begin{exercise}
+	Zapisz definicję pierścienia w postaci algebry.
+\end{exercise}
+

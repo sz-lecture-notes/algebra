@@ -1,0 +1,308 @@
+\section{Podstawowe struktury.}
+
+\begin{definition}
+	\textbf{Magmą} nazywamy parę $(A, \star)$, gdzie $A$ jest zbiorem, a $\star: A^2 \to A$ jest dwuargumentową funkcją na A (nazywaną też działaniem). Działanie $\star$ na $x, y \in A$ zapisujemy $x \star y$.
+\end{definition}
+Często magmę $(A, \star)$ będziemy utożsamiać ze zbiorem $A$ i mówić, że $A$ jest magmą.
+Podobny zabieg wykonamy dla wszystkich kolejnych definiowanych przez nas struktur.
+
+\begin{example}
+	$(\mathbb{N}_+, +)$ (przez $\mathbb{N}_+$ rozumiemy dodatnie liczby naturalne) jest magmą.
+\end{example}
+
+\begin{example}
+	$(\mathbb{Z}, +)$ jest magmą.
+\end{example}
+
+\begin{example}
+	$(\mathbb{Q}_+, \div)$ (przez $\mathbb{Q}_+$ rozumiemy dodatnie liczby wymierne) jest magmą.
+\end{example}
+
+\begin{definition}
+	\textbf{Półgrupą} nazywamy magmę $(A, \star)$, że działanie $\star$ jest łączne. To znaczy, że
+	\begin{equation*}
+		\forall_{a,b,c \in A}\; a \star (b \star c) = (a \star b) \star c.
+	\end{equation*}
+\end{definition}
+
+\begin{example}
+	$(\mathbb{N}_+, +)$ jest półgrupą.
+\end{example}
+
+\begin{example}
+	$(\mathbb{Z}, +)$ jest półgrupą.
+\end{example}
+
+\begin{example}
+	$(\mathbb{Q}_+, \div)$ \textit{nie} jest półgrupą, ponieważ przykładowo
+	\begin{equation*}
+		1 \div (2 \div 2) = 1 \neq \frac{1}{4} = (1\div2)\div2.
+	\end{equation*}
+\end{example}
+
+Dzięki łączności,
+	działania w półgrupach nie wymagają nawiasów.
+Przykładowo, jeśli $(A, \cdot)$ jest półgrupą i $a, b, c, d \in A$,
+	to zapis
+\begin{equation}
+	a \cdot b \cdot c \cdot d
+\end{equation}
+	jest jednoznaczny, bo
+\begin{equation}
+		a \cdot (b \cdot (c \cdot d)) = 
+		(a \cdot b) \cdot (c \cdot d) =
+		(a \cdot ((b \cdot c) \cdot d) = \dots
+\end{equation}
+	co niekoniecznie zachodzi w magmie.
+Własność tę można udowodnić indukcyjnie.
+
+Jeśli w półgrupie działanie oznaczamy przez $\cdot$,
+	to zwykle nie będziemy go zapisywać.
+To znaczy, zamiast pisać $x \cdot y$ będziemy pisać $xy$.
+
+\begin{definition}
+	\textbf{Monoidem} nazywamy trójkę $(A, \star, e)$,
+		że $(A, \star)$ jest półgrupą,
+		a $e\in A$ jest \textbf{elementem neutralnym} działania $\star$,
+		t.j. takim, że
+	\begin{equation}
+		\forall_{x \in A}\; e \star x = x = x \star e.
+	\end{equation}
+\end{definition}
+
+Element $e$ nazywamy zwykle \textbf{jednością},
+	\textbf{jedynką} lub \textbf{zerem},
+	zależnie od kontekstu.
+Jeśli element ten będzie wiadomy z kontekstu,
+	to nie będziemy o nim wspominać
+
+\begin{example}
+	$(\mathbb{Z}, +, 0)$ jest monoidem.
+\end{example}
+
+\begin{example}
+	$(\mathbb{N}_+, +)$ \textit{nie} jest monoidem, bo nie jest trójką, tylko parą.
+	Ale nawet gdybyśmy chcieli,
+		to nie zrobimy z tego zbioru i działania monoidu,
+		bo nie ma dodatniej liczby naturalnej $n$,
+		że $n + a = a$ dla każdego $a \in \mathbb{N}_+$.
+\end{example}
+
+\begin{example}
+	Ciągi znaków (\textit{stringi}) z operacją konkatenacji i pustym ciągiem tworzą monoid.
+\end{example}
+
+\begin{example}
+	$\left(\mathbb{R}^{2 \times 2}, \cdot, \left[\begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix}\right]\right)$ jest monoidem.
+\end{example}
+
+\noindent\sout{
+	\textbf{Przykład 1.1.?} Monada jest monoidem w kategorii endofunktorów.
+}
+
+Jeśli ktoś kiedyś słyszał lub usłyszy o powyższym stwierdzeniu,
+	często żartobliwie przytaczanym jako ,,proste'' wytłumaczenie,
+	czym jest monada, to zapewniam, że jest ono prawdziwe.
+Chodzi tam jednak o inny monoid,
+	znacznie uogólniony w stosunku do naszego.
+
+\begin{definition}
+    \textbf{Grupą} nazywamy czwórkę $(A, \star, e, \mathrm{inv})$,
+		że $(A, \star, e)$ jest monoidem,
+		a $\mathrm{inv}: A \to A$ jest funkcją przypisującą każdemu elementowi jego \textbf{odwrotność},
+		to znaczy spełniającą warunek
+	\begin{equation*}
+		\forall_{x \in A}\; {x\star \mathrm{inv}(x) = e = \mathrm{inv}(x) \star x}.
+	\end{equation*}
+\end{definition}
+Podobnie jak w przypadku monoidu,
+	jeśli jedność i funkcja odwrotności będzie oczywista,
+	to nie będziemy o niej wspominać.
+
+\begin{example}
+	Czwórka $(\mathbb{Q}, +, 0, (-\cdot))$, czyli liczby wymierne z dodawaniem, zerem i negacją, jest grupą.
+\end{example}
+
+\begin{example}
+	Używając uproszczonej terminologii, zbiór
+	\begin{equation}
+		\{A \in \mathbb{R}^{2 \times 2} | \det(A) \neq 0 \}
+	\end{equation}
+		ze standardowym mnożeniem macierzy stanowi grupę.
+\end{example}
+
+\begin{example}
+	Zbiór $\mathbb{R}^{n \times n}$ dla ustalonego $n > 1$ nie stanowi grupy
+		ze standardowym mnożeniem macierzy,
+		gdyż nie każdy element ma odwrotność.
+	Ten sam zbiór z dodawaniem macierzy jest już jednak grupą---odwrotnościami są negacje macierzy.
+\end{example}
+
+\subsubsection{Przemienność.}
+Jeśli w którejś ze zdefiniowanych przez nas struktur działanie $\star$ jest przemienne, to znaczy
+\begin{equation}
+	\forall_{x,y \in A}\; x \star y = y \star x,
+\end{equation}
+to strukturę tę nazywamy przemienną.
+Mamy więc \textbf{przemienne magmy}, \textbf{przemienne półgrupy}, \textbf{przemienne monoidy} i \textbf{przemienne grupy}.
+Grupy przemienne nazywa się jednak zwykle \textbf{grupami abelowymi},
+od nazwiska norweskiego matematyka Nielsa Henrika Abela, 1802--1829.
+,,Abelowy'' piszemy jednak z małej litery (z wyjątkiem początku zdania), gdyż jest to przymiotnik.
+
+\begin{example}
+	$\mathbb{N}$ z dodawaniem jest półgrupą przemienną.
+\end{example}
+
+\begin{example}
+	$\mathbb{Q}\setminus\{0\}$ z mnożeniem jest grupą abelową.
+\end{example}
+
+\begin{example}
+	Zbiór ciągów znakowych z konkatenacją \textit{nie} jest monoidem przemiennym---w konkatenacji kolejność ma znaczenie.
+\end{example}
+
+\subsection{Złożone struktury.}
+Używając zdefiniowanych przez nas prostych struktur algebraicznych możemy definiować bardziej złożone,
+	składające się z wielu działań (ale nadal tylko jednego zbioru).
+
+\begin{definition}
+	\textbf{Pierścieniem} nazywamy szóstkę $(P, +, 0, \mathrm{neg}, \cdot, 1)$,
+		że $(P, +, 0, \mathrm{neg})$ jest grupą abelową,
+		a $(P, \cdot, 1)$ jest monoidem,
+		oraz zachodzą równania
+		\begin{align}
+			\label{dist1}\forall_{a, b, c \in P} a \cdot (b + c) &= a \cdot b + a \cdot c \\
+			\label{dist2}\forall_{a, b, c \in P} (a + b) \cdot c &= a \cdot c + b \cdot c
+		\end{align}
+\end{definition}
+
+W pierścieniu mamy już nie jedno,
+	a dwa działania.
+Tworzą one niezależnie od siebie grupę abelową i monoid,
+	ale dodatkowo łączy jest \textbf{rozdzielność},
+	czyli równania \eqref{dist1} i \eqref{dist2}.
+
+\begin{example}
+	Liczby całkowite z dodawaniem i mnożeniem tworzą pierścień.
+	Jest to podstawowy przykład i inspiracja dla definicji pierścienia.
+\end{example}
+
+\begin{example}
+	Niech $P(\mathbb{R})$ będzie zbiorem wielomianów o współczynnikach z $\mathbb{R}$.
+	Wtedy $P(\mathbb{R})$ z dodawaniem i mnożeniem wielomianów tworzy pierścień.
+\end{example}
+
+Dodatkowo możemy zdefiniować,
+	że pierścień $(P, +, 0, \mathrm{neg}, \cdot, 1)$ jest przemienny,
+	jeśli działanie $\cdot$ jest przemienne.
+Przemienność $+$ jest natomiast wymagana już przez samą definicję pierścienia.
+
+\begin{definition}
+	\textbf{Ciałem} nazywamy siódemkę $(K, +, 0, \mathrm{neg}, \cdot, 1, \mathrm{inv})$,
+		że $(K, +, 0, \mathrm{neg}, \cdot, 1)$ jest pierścieniem,
+		a $(K \setminus \{0\}, \cdot, 1, \mathrm{inv})$ jest grupą abelową.
+\end{definition}
+
+\begin{example}
+	$\mathbb{Q}$ z dodawaniem i mnożeniem tworzy ciało.
+\end{example}
+
+\begin{example}
+	$\mathbb{R}$ z dodawaniem i mnożeniem tworzy ciało.
+\end{example}
+
+\begin{example}
+	$\mathbb{Z}$ z dodawaniem i mnożeniem \textit{nie} tworzy ciała---w liczbach całkowitych
+		odwrotność względem mnożenia ma tylko $1$.
+\end{example}
+
+\subsection{Zadania.}
+
+\begin{exercise}
+	Pokaż, że zbiór macierzy $\mathbb{R}^{2 \times 2}$ z mnożeniem
+		jest magmą, półgrupą, monoidem.
+	Pokaż, że zbiór ten nie jest grupą.
+\end{exercise}
+
+\begin{exercise}
+	Podaj przykład grupy, która nie jest przemienna.
+\end{exercise}
+
+\begin{exercise}
+	Sprawdź, czy $(\mathbb{C}, +)$ jest grupą.
+\end{exercise}
+
+\begin{exercise}
+	Czy $\mathbb{C}$ ze standardowym mnożeniem jest monoidem? Jeśli tak, to jaki jest element neutralny? Czy jest to grupa?
+\end{exercise}
+
+\begin{exercise}
+	Niech $A$ będzie dowolnym zbiorem.
+	Które z definicji struktur algebraicznych spełnia zbiór funkcji $A \to A$ z operacją składania funkcji?
+\end{exercise}
+
+\begin{exercise}
+	Sprawdź,
+		które z definicji struktur algebraicznych spełnia zbiór ścieżek na płaszczyźnie
+		(t.j. funkcji $[0, 1] \to \mathbb{R}^2$) z operacją łączenia ich swoimi końcami
+		(tzn. dwie ścieżki możemy połączyć w jedną,
+			wtedy i tylko wtedy gdy pierwsza kończy się tam,
+			gdzie druga się zaczyna).
+\end{exercise}
+
+\begin{exercise}
+	Udowodnij,
+		że $\mathbb{R}^{2 \times 2}$ ze standardowym dodawaniem i mnożeniem macierzy tworzy pierścień.
+\end{exercise}
+
+\begin{exercise}
+	Zapisz definicję ciała, nie używając definicji pierścienia.
+\end{exercise}
+
+\begin{exercise}
+	Udowodnij, że liczby zespolone $\mathbb{C}$ są ciałem.
+\end{exercise}
+
+\begin{exercise}
+	Dlaczego zdefiniowaliśmy przemienne warianty każdej ze struktur, ale nie ciał?
+\end{exercise}
+
+\begin{exercise}
+    Niech $(A, \cdot, e, \mathrm{inv})$ będzie dowolną grupą.
+    Udowodnij, że dla każdego $x \in A$ zachodzi ${x^{-1}}^{-1} = x$.
+\end{exercise}
+
+\begin{exercise}
+    Niech $(A, \cdot, e)$ będzie dowolnym monoidem.
+	Niech $y \in A$.
+    Udowodnij, że jeśli dla każdego $x \in A$ zachodzi
+	\begin{equation}
+        yx = x,
+	\end{equation}
+	lub
+	\begin{equation}
+        xy = x,
+	\end{equation}
+    to $y = e$.
+    Pokazuje to,
+		że mając dane działanie,
+		istnieje conajwyżej jeden element neutralny.
+\end{exercise}
+
+\begin{exercise}
+    Niech $(A, \cdot, e, \mathrm{inv})$ będzie dowolną grupą.
+	Niech $x \in A$.
+    Udowodnij, że jeśli dla pewnego $y \in A$ zachodzi
+	\begin{equation}
+        yx = e,
+	\end{equation}
+	lub
+	\begin{equation}
+        xy = e,
+	\end{equation}
+    to $y = \mathrm{inv}(x)$.
+    Pokazuje to,
+		że mając dane działanie i element neutralny,
+        dla każdego elementu istnieje conajwyżej jeden sposób zdefiniowania odwrotności.
+\end{exercise}
+

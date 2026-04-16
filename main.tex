@@ -1,0 +1,92 @@
+\documentclass{book}
+\usepackage{soul} % Strike through
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{centernot}
+\usepackage{amsthm}
+\usepackage{csquotes, dirtytalk, marginnote, lipsum, scrextend, xcolor, graphicx, amssymb, amstext, amsmath, epstopdf, booktabs, verbatim, gensymb, geometry, appendix, natbib, lmodern}
+\usepackage[pagestyles]{titlesec}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\usepackage{mparhack}
+\usepackage{psvectorian}
+\geometry{b5paper, bottom=2.5cm}
+
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage{fontspec}
+\usepackage{tocloft}
+\usepackage[perpage]{footmisc}
+\usepackage{enumitem}
+\usepackage{sectsty}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definicja}[section]
+\newtheorem{example}{Przykład}[section]
+\newtheorem{exercise}{Zadanie}[section]
+\newtheorem{lemma}{Lemat}[section]
+\newtheorem{theorem}{Twierdzenie}[section]
+
+\date{MM XX V.}
+\author{Szymon Paweł Zyguła \& studenci.}
+\title{Podstawy Algebry Abstrakcyiney.}
+
+\begin{document}
+
+\begin{titlepage}
+	\center
+	{\large Szymoná Pawłá Zyguły} \\
+	\vspace{0.5cm}
+	{\red {\Huge PODSTAWY ALGEBRY}} \\
+	\vspace{0.5cm}
+	{\LARGE ABSTRAKCYINEY,}\\
+	\vspace{1cm}
+	{\large ſporządzone dla ſtudentów kierunku Informatyka y Syſtemy Informacyine,
+		ſpecyalność Proiektowanie Syſtemów CAD \& CAM na Polytechnice Wárßáwſkiey,
+		wydziale Mátemátyki y Náuk Informacyinych.} \\
+		\vspace{1cm}
+	{\Large Z dla
+		Boryſá Kurdká,
+		Maxymilianá Michałá Czapſkiego,
+		Zofii Anny Grabowſkiey,
+		Piotrá Kucharczyká,
+		Michałá Okurowſkiego,
+		Filipá Łojká,
+		i Miłoßá Damianá Sobczyká
+		 podziękowániami zá poprawki.} \\
+	\begin{pspicture}(-1.5,-3.5)(1.5,1.5)%
+		\rput[t](0,-1.0){\psvectorian[width=12cm]{71}}
+	\end{pspicture}%
+	\vspace{3cm}
+	\\
+	{\LARGE \red WÁRSZÁWÁ,} \\
+	\vspace{0.5cm}
+	{\Large \textit{cum privilegio.}}\\
+	\begin{pspicture}(-1.5,0.0)(1.5,0.0)%
+		\rput[t](0,0){\psvectorian[width=7.5cm]{88}}
+	\end{pspicture}%
+	\vspace{0.5cm}
+	\\
+	{\LARGE \red MM XX V.}
+	
+\end{titlepage}
+
+\tableofcontents
+
+\input{01-algebraic-structures/chapter}
+\input{02-vector-spaces/chapter}
+
+\vfill
+\center
+\begin{pspicture}(-1.5,-3.5)(1.5,1.5)%
+	\rput(0,0){\Large \textbf{FINIS.}}
+	\rput[t](0,-1.0){\psvectorian[width=5cm]{68}}
+\end{pspicture}%
+
+\end{document}

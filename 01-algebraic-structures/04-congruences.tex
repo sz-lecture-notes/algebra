@@ -1,0 +1,288 @@
+\section{Kongruencje.}
+Przejdziemy teraz do nieco bardziej abstrakcyjnego pojęcia,
+	tak zwanych kongruencji.
+Mówiąc nieformalnie,
+	są to relacje równoważności na modelach algebr,
+	które są spójne ze strukturą tych modeli.
+
+\begin{definition}
+	Niech $\mathfrak{A} = (\Sigma, E)$ będzie algebrą,
+		$A$ modelem $\mathfrak{A}$,
+		a $\sim$ dowolną relacją równoważności na $A$.
+	Wtedy $\sim$ jest \textbf{kongruencją},
+		jeśli dla każdego symbolu $f^n \in \Sigma$,
+			reprezentującej go funkcji $f: A^n \to A$ i
+	\begin{equation}
+		x_1, \dots, x_n,\; y_1, \dots, y_n \in A
+	\end{equation}
+	 zachodzi
+	\begin{equation}
+		x_1 \sim y_1, \dots, x_n \sim y_n \implies f(x_1, \dots, x_n) \sim f(y_1, \dots, y_n).
+	\end{equation}
+\end{definition}
+
+Czyli kongruencja jest relacją równoważności,
+	która zachowuje równoważność przy nakładaniu funkcji reprezentujących symbole algebry.
+
+\begin{example}
+	Rozważmy monoid ciągów znaków z konkatenacją.
+	Relacja, która identyfikuje dwa ciągi, jeśli ich długość jest taka sama,
+		jest kongruencją.
+\end{example}
+
+\begin{example}
+	Rozważmy $\mathbb{Z}$ jako pierścień z dodawaniem i mnożeniem.
+	Dla dowolnej liczby $n \in \mathbb{N}$ relacja $\sim$ zdefiniowana przez warunek
+	\begin{equation}
+		\forall_{x, y \in \mathbb{Z}} \; x \sim y \iff x \mod n = y \mod n
+	\end{equation}
+	jest kongruencją.
+\end{example}
+
+\begin{theorem}\label{th:cong-model}
+	Niech $\mathfrak{A} = (\Sigma, E)$ będzie algebrą,
+		$A$ jej modelem i $\sim$ kongruencją na $A$.
+	Wtedy $A/_\sim$ też jest modelem $\mathfrak{A}$.
+\end{theorem}
+\begin{proof}
+	Musimy pokazać,
+		że istnieją interpetacje symboli z $\Sigma$ jako funkcje nad $A$ z odpowiednimi
+		arnościami,
+		i że spełnione są przy tym wszystkie równania z $E$.
+	Niech $f^n \in \Sigma$ będzie dowolnym symbolem arności $n$,
+		któremu odpowiada funkcja $f$ w $A$.
+	Zdefiniujemy teraz odpowiadającą mu funkcję $f_\sim$ na $A/_\sim$ jako
+	\begin{equation}
+		f_\sim([x_1]_\sim, \dots, [x_n]_\sim) = [f(x_1, \dots, x_n)]_\sim.
+	\end{equation}
+	Musimy jednak pokazać,
+		że definicja $f_\sim$ jest niezależna od wybranych reprezentantów klas $[x_1]_\sim, \dots, [x_n]_\sim$.
+	Weźmy więc dowolne
+	\begin{equation}
+		x_1, \dots, x_n,\;y_1, \dots, y_n \in A
+	\end{equation}
+		takie,
+		że $x_i \sim y_i$ dla każdego $i = 1, \dots, n$,
+		czyli $[x_i]_\sim = [y_i]_\sim$.
+	Mamy teraz
+	\begin{equation}
+		[f(x_1, \dots, x_n)]_\sim = [f(y_1, \dots, y_n)]_\sim,
+	\end{equation}
+	ponieważ z definicji kongruencji mamy
+	\begin{equation}
+		x_1 \sim y_1, \dots, x_n \sim y_n \implies f(x_1, \dots, x_n) \sim f(y_1, \dots, y_n).
+	\end{equation}
+	Oznacza to,
+		że definicja $f_\sim$ nie jest zależna od wybranych reprezentantów klas $[x_1]_\sim, \dots, [x_n]_\sim$,
+	czyli poprawnie zdefiniowaliśmy funkcje na $A/_\sim$ odpowiadające symbolom z $\Sigma$.
+
+	Dowód,
+		że funkcje te spełniają równania z $E$,
+		pozostawiamy jako zadanie dla czytelnika (zad.~\ref{ex:first-cong}--\ref{ex:last-cong}).
+\end{proof}
+
+\begin{definition}
+	\textbf{Jądrem} homomorfizmu $h: A \to B$ nazywamy relację określoną wzorem
+	\begin{equation}
+		x \equiv_h y \iff h(x) = h(y).
+	\end{equation}
+\end{definition}
+
+Definicja ta nie do końca zgadza się z tym,
+	czego mogliśmy się kiedyś dowiedzieć.
+Czy jądrem nie powinien być zbiór miejsc zerowych?
+Dlaczego tutaj jest to relacja?
+Na te pytania odpowiemy niedługo.
+
+\begin{lemma}
+	Niech $\mathfrak{A} = (\Sigma, E)$ będzie algebrą, a $A, B$ jej modelami.
+	Niech $h: A \to B$ będzie homomorfizmem.
+	Wtedy jego jądro $\equiv_h$ jest kongruencją.
+\end{lemma}
+\begin{proof}
+	Fakt,
+		że $\equiv_h$ jest relacją równoważności,
+		pozostawiamy dla czytelnika (zad.~\ref{ex:ker-equiv}).
+	Zakładając jego prawdziwość pokażemy,
+		że $\equiv_h$ jest kongruencją.
+
+	Niech $f^n \in \Sigma$ będzie dowolnym symbolem arności $n$,
+		a $f_A, f_B$ odpowiadającymi mu funkcjami na odpowiednio $A, B$.
+	Weźmy dowolne
+	\begin{equation}
+		x_1 \dots, x_n,\;y_1, \dots, y_n \in A
+	\end{equation}
+	spełniające
+	\begin{equation}
+		x_1 \equiv_h y_1, \dots, x_n \equiv_h y_n
+	\end{equation}
+	Chcemy pokazać, że
+	\begin{equation}
+		f_A(x_1, \dots, x_n) \equiv_h f_A(y_1, \dots, y_n).
+	\end{equation}
+	Z założenia i definicji jąda mamy
+	\begin{equation}
+		h(x_1) = h(y_1), \dots, h(x_n) = h(y_n),
+	\end{equation}
+	czyli
+	\begin{equation}
+		f_B(h(x_1), \dots, h(x_n)) = f_B(h(y_1), \dots, h(y_n)),
+	\end{equation}
+	co z faktu, że $h$ jest homorfizmem daje
+	\begin{equation}
+		h(f_A(x_1, \dots, x_n)) = h(f_A(y_1, \dots, y_n)),
+	\end{equation}
+	co jest z definicji równoważne udowadnianej przez nas własności.
+\end{proof}
+
+Skoro jądro homomorfizmu $h: A \to B$ jest relacją równoważności,
+	to dzieli ono $A$ na klasy równoważności.
+Jeśli algebra,
+	której $A$ i $B$ są modelami ma jakiś element $e$,
+	który nazwać możemy jednością
+	(czyli np. operujemy na monoidach, grupach, przestrzeniach liniowych),
+	to jądrem możemy też nazywać klasę abstrakcji zawierającą ten element
+	(co oznaczać będziemy przez $\mathrm{Ker}\,h$).
+Takie spojrzenie jest zgodne z tym,
+	że jądro jest zbiorem ,,miejsc zerowych'' homomorfizmu:
+\begin{align}
+	[e]_{\equiv_h} &= \\
+		&= \{x \in A | x \equiv_h e \} \\
+		&= \{x \in A | h(x) = h(e) \} \\
+		&= \{x \in A | h(x) = e \}\\
+		&= \mathrm{Ker}\,h.
+\end{align}
+
+Pojęciem dualnym do jądra jest obraz homomorfizmu $\mathrm{Im}\,h$.
+Jest to nic innego,
+	jak zbiór wartości.
+Obraz oczywiście nie musi być równy przeciwdziedzinie.
+Jeśli jest,
+	to $h$ jest epimorfizmem.
+Jak się okazuje,
+	obrazy,
+	podobnie jak jądra (zad.~\ref{ex:ker-submodel}) są podmodelami.
+
+\begin{lemma}
+	Niech $h: A \to B$ będzie homomorfizmem.
+	Zbiór wartości $\mathrm{Im}\,h$ jest wtedy podmodelem $B$.
+\end{lemma}
+\begin{proof}
+	Musimy pokazać,
+		że funkcje na $B$ odpowiadające symbolom z $\Sigma$ możemy ograniczyć do $\mathrm{Im}\,h$,
+		czyli że dla argumentów z $\mathrm{Im}\,h$ przyjmują wartości z $\mathrm{Im}\,h$.
+	Niech więc $f^n \in \Sigma$ będzie $n$-arnym symbolem,
+		a $f_A, f_B$ odpowiadającymi mu funkcjami na odpowiednio $A, B$.
+	Niech $y_1, \dots, y_n \in \mathrm{Im}\,h$.
+	Istnieją więc $x_1, \dots, x_n \in A$,
+		że
+	\begin{equation}
+		y_1 = h(x_1), \dots, y_n = h(x_n).
+	\end{equation}
+	Mamy więc
+	\begin{equation}
+		f_B(y_1, \dots, y_n) = f_B(h(x_1), \dots, h(x_n)) = h(f_A(x_1, \dots, x_n)),
+	\end{equation}
+	co znaczy,
+		że $f_B(y_1, \dots, y_n) \in \mathrm{Im}\,h$.
+\end{proof}
+
+Gotowi jesteśmy teraz,
+	by zapostulować i udowodnić centralne twierdzenie tego skryptu,
+	które mówi,
+	jak dokładnie działają homomorfizmy.
+
+\begin{theorem}\label{th:isomorphism}
+	Niech $h: A \to B$ będzie homomorfizmem.
+	Wtedy
+	\begin{equation}
+		h_*: A/_{\equiv_h} \to \mathrm{Im}\,h,
+	\end{equation}
+	zdefiniowany jako
+	\begin{equation}
+		h_*([x]_{\equiv_h}) = h(x),
+	\end{equation}
+	jest izomorfizmem.
+\end{theorem}
+\begin{proof}
+	Definicja $h_*$ jest poprawna,
+		t.j. nie zależy od wyboru reprezentanta klasy.
+	Wynika to bezpośrednio z definicji jądra.
+	Jeśli $x \equiv_h y$, to $h(x) = h(y)$.
+
+	Pokażemy, że $h_*$ jest homomorfizmem.
+	Jeśli $f^n \in \Sigma$ jest $n$-arnym symbolem
+		i odpowiadają mu w $A, B, A/_{\equiv_h}, \mathrm{Im}\,B$
+		odpowiednio funkcje $f_A, f_B, f_{A/_{\equiv_h}}, f_{\mathrm{Im}\,B}$,
+		to
+	\begin{align}
+		h_*(f_{A/_{\equiv_h}}([x_1]_{\equiv_h}, \dots, [x_n]_{\equiv_h})) &= \\
+			(\text{definicja $A/_{\equiv_h}$ jako modelu})\qquad &= h_*([f_A(x_1, \dots, x_n)]_{\equiv_h}) \\
+			(\text{definicja}\,h_*)\qquad &= h(f_A(x_1, \dots, x_n)) \\
+			(\text{$h$ jest homomorfizmem})\qquad &= f_B(h(x_1), \dots, h(x_n)) \\
+			(\,h(x_i) \in \mathrm{Im}\,B)\qquad &= f_{\mathrm{Im}\,B}(h(x_1), \dots, h(x_n)) \\
+			(\text{definicja $h_*$})\qquad &= f_{\mathrm{Im}\,B}(h_*([x_1]_{\equiv_h}), \dots, h_*([x_n]_{\equiv_h})),
+	\end{align}
+	czyli $h_*$ jest homomorfizmem.
+
+	Pozostaje pokazać,
+		że $h_*$ jest bijekcją.
+	Załóżmy, że $h_*([x]_{\equiv_h}) = h_*([y]_{\equiv_h})$.
+	Czyli
+	\begin{equation}
+		h(x) = h_*([x]_{\equiv_h}) = h_*([y]_{\equiv_h}) = h(y).
+	\end{equation}
+	Więc $x \equiv_h y$ i tym samym $[x]_{\equiv_h} = [y]_{\equiv_h}$, czyli
+		$h_*$ jest monomorfizmem.
+	Załóżmy teraz,
+		że $y \in \mathrm{Im}\,h$.
+	Czyli istnieje $x \in A$, że $h(x) = y$.
+	Mamy więc
+	\begin{equation}
+		h_*([x]_{\equiv_h}) = h(x) = y,
+	\end{equation}
+	czyli $h_*$ jest epimorfizmem.
+	$h_*$ jest więc izomorfizmem.
+\end{proof}
+
+\subsection{Zadania.}
+
+\begin{exercise}\label{ex:first-cong}
+	Niech $\mathfrak{A} = (\Sigma, E)$ będzie dowolną algebrą.
+	Niech $A$ będzie modelem $\mathfrak{A}$,
+		a $\sim$ kongruencją na $A$.
+	Udowodnij,
+		że jeśli $F: A^n \to A$ jest funkcją zdefiniowaną przez wyrażenie składające się
+		ze zmiennych i funkcji odpowiadającym wyrażeniom z $\Sigma$,
+		to możemy zdefiniować $F_\sim : (A/_\sim)^n \to A/_\sim$ jako
+	\begin{equation}
+		F_\sim([x_1], \dots, [x_n]) = [F(x_1, \dots, x_n)],
+	\end{equation}
+		tzn., że definicja ta nie zależy od wyboru reprezentantów klas abstrakcji.
+
+	\textit{Podpowiedź: indukcja po wysokości drzewa wyrażenia, które definiuje $F$.
+	Przypadek bazowy jest już rozważony w dowodzie twierdzenia~\ref{th:cong-model}}
+\end{exercise}
+
+\begin{exercise}\label{ex:last-cong}
+	Używając wyniku zadania~\ref{ex:first-cong} udowodnij brakującą część dowodu twierdzenia~\ref{th:cong-model}
+\end{exercise}
+
+\begin{exercise}\label{ex:ker-equiv}
+	Udowodnij,
+		że jeśli $h: A \to B$ jest homomorfizmem,
+		to jego jądro $\equiv_h$ jest relacją równoważności
+		(korzystając tylko z definicji jądra).
+\end{exercise}
+
+\begin{exercise}\label{ex:ker-submodel}
+	Niech $h: A \to B$ będzie homomorfizmem dwóch modeli pewnej algebry.
+	Udowodnij, że $\mathrm{Ker}\,h$ jest podmodelem $A$.
+\end{exercise}
+
+\begin{exercise}
+	Sformułuj i udowodnij przypadek szczególny twierdzenia~\ref{th:isomorphism} dla monoidów.
+\end{exercise}
+
+% TODO: Dodać zadania ,,udowodnij, że ~ jest kongruencją"
+% TODO: Dodać zadania ,,wyznacz jądro XXX"
