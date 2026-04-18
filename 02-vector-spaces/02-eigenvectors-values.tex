@@ -2,11 +2,11 @@
 
 W tej sekcji zakładamy,
 	że ustalone mamy ciało $\mathbb{K}$,
-	które jest równe $\mathbb{R}o$ lub $\mathbb{C}$.
+	które jest równe $\mathbb{R}$ lub $\mathbb{C}$.
 
 \begin{definition}
 	\textit{Wektorem własnym} macierzy $A \in \mathbb{K}^{n \times n}$
-		nazywamy niezerowy wektor $v \in \mathbb{K}^{n \times 1}$,
+		nazywamy niezerowy wektor $v \in \mathbb{K}^{n \times 1}$ taki,
 		że dla pewnego $\lambda \in \mathbb{K}$
 	\begin{equation}
 		Av = \lambda v.
@@ -15,7 +15,7 @@ W tej sekcji zakładamy,
 \end{definition}
 
 Załóżmy,
-	że daną mamy macierz $A in \mathbb{K}^{n \times n}$
+	że daną mamy macierz $A \in \mathbb{K}^{n \times n}$
 	i chcemy wyznaczyć jej wektory i wartości własne.
 Jak możemy to zrobić?
 Przekształćmy równanie definiujące te pojęcia.
@@ -27,8 +27,8 @@ Przekształćmy równanie definiujące te pojęcia.
 \end{align}
 Oznacza to,
 	że $v$ jest wektorem własnym macierzy $A$ z odpowiadającą mu wartością własną $\lambda$
-	wtedy i tylko wtedy gdy $(\lambda I - A) v = \textbf{0}$,
-	czyli wtedy i tylko wtedy gdy $v \in \ker(\lambda I - A)$.
+	wtedy i tylko wtedy, gdy $(\lambda I - A) v = \textbf{0}$,
+	czyli wtedy i tylko wtedy, gdy $v \in \ker(\lambda I - A)$.
 
 Skoro interesują nas tylko takie $v$,
 	które są niezerowe,
@@ -38,17 +38,17 @@ Zachodzi to dokładnie wtedy,
 	gdy $A - \lambda I$ jest macierzą nieodwracalną,
 	czyli
 \begin{equation}\label{eq:eigen-condition}
-	\det(\ker(\lambda I - A)) = 0.
+	\det(\lambda I - A) = 0.
 \end{equation}
 
-Aby wyznaczyć wartości własne $A$ musimy więc sprawdzić,
+Aby wyznaczyć wartości własne $A$, musimy więc sprawdzić,
 	dla jakich $\lambda \in \mathbb{K}$ spełnione jest równanie \ref{eq:eigen-condition}.
-Okazuje się to dość proste, gdyż zawsze jest to równanie wielomianowe (zadanie \ref{ex:characteristic-eq-is-poly})
+Okazuje się to dość proste, gdyż zawsze jest to równanie wielomianowe (zadanie \ref{ex:characteristic-eq-is-poly}).
 Kiedy to ustalimy,
 	wyznaczyć możemy $\ker(A - \lambda I)$.
 Każdy wektor w tej przestrzeni liniowej będzie wektorem własnym $A$.
 Wielomian,
-	który pojawia się w tym równaniu ma swoją specjalną nazwę.
+	który pojawia się w tym równaniu, ma swoją specjalną nazwę.
 
 \begin{definition}
 	\textit{Wielomianem charakterystycznym} macierzy $A \in \mathbb{K}^{n \times n}$
@@ -60,7 +60,7 @@ Wielomian,
 
 \begin{definition}
 	Krotnością algebraiczną wartości własnej $\lambda$ macierzy $A \in \mathbb{K}^{n \times n}$
-		nazywamy krotność pierwiastka $\lambda$ wielomianu $\chi_A(\lambda)$.
+		nazywamy krotność pierwiastka $\lambda$ wielomianu $\chi_A$.
 \end{definition}
 
 \begin{example}
@@ -76,10 +76,10 @@ Wielomian,
 
 
 \begin{definition}
-	Macierz $A \in \mathbb{K}^{n \times n}$ nazywamy \textit{diagonizowalna},
+	Macierz $A \in \mathbb{K}^{n \times n}$ nazywamy \textit{diagonalizowalną},
 		jeśli istnieje macierz odwracalna $X \in \mathbb{K}^{n \times n}$
 		i macierz diagonalna $D \in \mathbb{K}^{n \times n}$,
-		że
+		taka, że
 	\begin{equation}
 		A = X D X^{-1}.
 	\end{equation}
@@ -108,7 +108,7 @@ Załóżmy,
 			0 & 0 & 2
 		\end{matrix}\right]
 	\end{equation}
-	jest diagonizowalna.
+	jest diagonalizowalna.
 	Wyznaczmy jej wartości własne.
 \end{example}
 

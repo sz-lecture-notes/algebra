@@ -24,7 +24,7 @@ Postać ta nazywa się postacią Jordana macierzy.
 	Mówimy, że macierz $J$ jest w \textit{postaci Jordana},
 		jeśli jest postaci
 	\begin{equation}
-		J =  \left[\begin{matrix}
+		J = \left[\begin{matrix}
 			J_{m_1}(\lambda_1) & \textbf{0} & \dots & \textbf{0} \\
 			\textbf{0} & J_{m_2}(\lambda_2) & \dots & \textbf{0} \\
 			\vdots & \vdots & \ddots & \vdots \\
@@ -35,7 +35,7 @@ Postać ta nazywa się postacią Jordana macierzy.
 \end{definition}
 Postać normalna nie jest jednak unikalna!
 Dana macierz może mieć kilka różnych postaci Jordana,
-	podobnie jak z postacią diagonalną.
+	podobnie jak postać diagonalna.
 
 Istnieje algorytm wyznaczania postaci normalnej Jordana.
 Proces ten jest nieco bardziej złożony,
@@ -44,9 +44,9 @@ Proces ten jest nieco bardziej złożony,
 % TODO
 
 \begin{enumerate}
-	\item oblicz wartości własne $A: \lambda_1, \dots, \lambda_k$,
-	\item oblicz krotości algebraiczne $\lambda_1, \dots, \lambda_k$
-		(krotości zer w wielomianie charakterystycznym $A$),
+	\item oblicz wartości własne $A$: $\lambda_1, \dots, \lambda_k$,
+	\item oblicz krotności algebraiczne $\lambda_1, \dots, \lambda_k$
+		(krotności zer w wielomianie charakterystycznym $A$),
 	\item oblicz krotności geometryczne $\lambda_1, \dots, \lambda_k$
 		(krotność geometryczna $\lambda_i$ to $\dim(\ker(A - \lambda_i I)))$),
 	\item (opcjonalnie) oblicz $\dim((A - \lambda_i I)^2), \dim((A - \lambda_i I)^3), \dim((A - \lambda_i I)^4), \dots$, aż wymiar przestanie się zmieniać.
