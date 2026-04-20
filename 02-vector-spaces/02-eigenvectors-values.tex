@@ -1,13 +1,12 @@
 \section{Wartości własne macierzy.}
 
-W tej sekcji zakładamy,
-	że ustalone mamy ciało $\mathbb{K}$,
-	które jest równe $\mathbb{R}$ lub $\mathbb{C}$.
+W tej sekcji zakładamy, że pracujemy nad ciałem $\mathbb{C}$.
+
 
 \begin{definition}
-	\textit{Wektorem własnym} macierzy $A \in \mathbb{K}^{n \times n}$
-		nazywamy niezerowy wektor $v \in \mathbb{K}^{n \times 1}$ taki,
-		że dla pewnego $\lambda \in \mathbb{K}$
+	\textit{Wektorem własnym} macierzy $A \in \mathbb{C}^{n \times n}$
+		nazywamy niezerowy wektor $v \in \mathbb{C}^{n \times 1}$ taki,
+		że dla pewnego $\lambda \in \mathbb{C}$
 	\begin{equation}
 		Av = \lambda v.
 	\end{equation}
@@ -15,7 +14,7 @@ W tej sekcji zakładamy,
 \end{definition}
 
 Załóżmy,
-	że daną mamy macierz $A \in \mathbb{K}^{n \times n}$
+	że daną mamy macierz $A \in \mathbb{C}^{n \times n}$
 	i chcemy wyznaczyć jej wektory i wartości własne.
 Jak możemy to zrobić?
 Przekształćmy równanie definiujące te pojęcia.
@@ -42,7 +41,7 @@ Zachodzi to dokładnie wtedy,
 \end{equation}
 
 Aby wyznaczyć wartości własne $A$, musimy więc sprawdzić,
-	dla jakich $\lambda \in \mathbb{K}$ spełnione jest równanie \ref{eq:eigen-condition}.
+	dla jakich $\lambda \in \mathbb{C}$ spełnione jest równanie \ref{eq:eigen-condition}.
 Okazuje się to dość proste, gdyż zawsze jest to równanie wielomianowe (zadanie \ref{ex:characteristic-eq-is-poly}).
 Kiedy to ustalimy,
 	wyznaczyć możemy $\ker(A - \lambda I)$.
@@ -51,7 +50,7 @@ Wielomian,
 	który pojawia się w tym równaniu, ma swoją specjalną nazwę.
 
 \begin{definition}
-	\textit{Wielomianem charakterystycznym} macierzy $A \in \mathbb{K}^{n \times n}$
+	\textit{Wielomianem charakterystycznym} macierzy $A \in \mathbb{C}^{n \times n}$
 		nazywamy wielomian
 	\begin{equation}
 		\chi_A(t) = \det(t I - A).
@@ -59,7 +58,7 @@ Wielomian,
 \end{definition}
 
 \begin{definition}
-	Krotnością algebraiczną wartości własnej $\lambda$ macierzy $A \in \mathbb{K}^{n \times n}$
+	Krotnością algebraiczną wartości własnej $\lambda$ macierzy $A \in \mathbb{C}^{n \times n}$
 		nazywamy krotność pierwiastka $\lambda$ wielomianu $\chi_A$.
 \end{definition}
 
@@ -76,9 +75,9 @@ Wielomian,
 
 
 \begin{definition}
-	Macierz $A \in \mathbb{K}^{n \times n}$ nazywamy \textit{diagonalizowalną},
-		jeśli istnieje macierz odwracalna $X \in \mathbb{K}^{n \times n}$
-		i macierz diagonalna $D \in \mathbb{K}^{n \times n}$,
+	Macierz $A \in \mathbb{C}^{n \times n}$ nazywamy \textit{diagonalizowalną},
+		jeśli istnieje macierz odwracalna $X \in \mathbb{C}^{n \times n}$
+		i macierz diagonalna $D \in \mathbb{C}^{n \times n}$,
 		taka, że
 	\begin{equation}
 		A = X D X^{-1}.
@@ -130,13 +129,13 @@ Załóżmy,
 \subsection{Zadania.}
 
 \begin{exercise}\label{ex:characteristic-eq-is-poly}
-	Niech $A \in \mathbb{K}^{n \times n}$ będzie macierzą.
+	Niech $A \in \mathbb{C}^{n \times n}$ będzie macierzą.
 	Udowodnij,
 		że $\det(\lambda I - A)$ jest wielomianem z $\lambda$ jako zmienną.
 \end{exercise}
 
 \begin{exercise}
-	Niech $A \in \mathbb{K}^{n \times n}$ będzie macierzą.
+	Niech $A \in \mathbb{C}^{n \times n}$ będzie macierzą.
 	Udowodnij,
 		że $\chi_A(t)$ jest wielomianem \textit{monicznym},
 		czyli że jego wiodący współczynnik jest równy $1$.
