@@ -55,4 +55,58 @@ Proces ten jest nieco bardziej złożony,
 	\item (opcjonalnie) oblicz $\dim(\ker((A - \lambda_i I)^2)), \dim(\ker((A - \lambda_i I)^3)), \dim(\ker((A - \lambda_i I)^4)), \dots$, aż wymiar przestanie się zmieniać.
 \end{enumerate}
 
+\begin{example}
+\begin{example}
+	Wyznaczmy postać Jordana macierzy
+	\begin{equation}
+		A = \left[\begin{matrix}
+			2 & 0 & 1 & 0 \\
+			0 & 1 & 0 & 0 \\
+			0 & 0 & 2 & 1 \\
+			0 & 0 & 0 & 2
+		\end{matrix}\right].
+	\end{equation}
+	Ponieważ $A$ jest macierzą górnotrójkątną,
+		jej wartościami własnymi są $1$ i $2$.
+	Ich krotności algebraiczne są równe odpowiednio $1$ i $3$.
+	Aby ustalić postać Jordana dla wartości własnej $2$,
+		obliczmy jej krotność geometryczną.
+	Mamy
+	\begin{equation}
+		A - 2I = \left[\begin{matrix}
+			0 & 0 & 1 & 0 \\
+			0 & -1 & 0 & 0 \\
+			0 & 0 & 0 & 1 \\
+			0 & 0 & 0 & 0
+		\end{matrix}\right],
+	\end{equation}
+	zatem
+	\begin{equation}
+		\ker(A - 2I) = \left\{\left[\begin{matrix}
+			x_1 \\
+			0 \\
+			0 \\
+			0
+		\end{matrix}\right] : x_1 \in \mathbb{C}\right\}
+		\implies
+		\dim(\ker(A - 2I)) = 1.
+	\end{equation}
+	Krotność geometryczna wartości własnej $2$ jest więc równa $1$.
+	Oznacza to,
+		że dla wartości własnej $2$ występuje dokładnie jedna klatka Jordana.
+	Ponieważ jej rozmiar musi być równy krotności algebraicznej wartości własnej $2$,
+		ma ona rozmiar $3$.
+	Dla wartości własnej $1$ mamy krotność algebraiczną $1$,
+		więc odpowiada jej jedna klatka rozmiaru $1$.
+	Postać Jordana macierzy $A$ jest więc równa
+	\begin{equation}
+		J = \left[\begin{matrix}
+			2 & 1 & 0 & 0 \\
+			0 & 2 & 1 & 0 \\
+			0 & 0 & 2 & 0 \\
+			0 & 0 & 0 & 1
+		\end{matrix}\right].
+	\end{equation}
+\end{example}
+
 \subsection{Zadania.}
