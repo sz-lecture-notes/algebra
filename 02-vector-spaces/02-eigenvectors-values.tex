@@ -109,6 +109,7 @@ Nie są one unikalne.
 Macierz jest diagonalizowalna wtedy i tylko wtedy,
 	gdy ma $n$ wektorów własnych,
 	których zbiór jest liniowo niezależny.
+Liczba ta jest zwana \textit{krotnością geometryczną} wartości własnej.
 % TODO: dlaczego?
 
 
@@ -160,13 +161,46 @@ Macierz jest diagonalizowalna wtedy i tylko wtedy,
 	Macierz
 	\begin{equation}
 		A = \left[\begin{matrix}
-			2 & 1 & 0 \\
-			0 & 2 & 1 \\
-			0 & 0 & 2
+			1 & 1 & 0 & 0 \\
+			0 & 2 & 0 & 0 \\
+			0 & 0 & 2 & 0 \\
+			0 & 0 & 0 & 3
 		\end{matrix}\right]
 	\end{equation}
-	nie jest diagonalizowalna.
-	
+	jest diagonalizowalna.
+	Ponieważ $A$ jest macierzą górnotrójkątną
+		(zob. zadanie \ref{ex:upper-triangular-eigenvalues}), mamy
+	\begin{equation}
+		\chi_A(t) = (t - 1)(t - 2)^2(t - 3).
+	\end{equation}
+	Wartościami własnymi macierzy $A$ są więc $1$, $2$ i $3$.
+	Ich krotności algebraiczne są równe odpowiednio $1$, $2$ i $1$.
+	Obliczmy krotność geometryczną wartości własnej $2$.
+	Mamy
+	\begin{equation}
+		A - 2I = \left[\begin{matrix}
+			-1 & 1 & 0 & 0 \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 1
+		\end{matrix}\right],
+	\end{equation}
+	zatem
+	\begin{equation}
+		\ker(A - 2I) = \left\{\left[\begin{matrix}
+			x_1 \\
+			x_1 \\
+			x_3 \\
+			0
+		\end{matrix}\right] : x_1, x_3 \in \mathbb{C}\right\}
+		\implies
+		\dim(\ker(A - 2I)) = 2.
+	\end{equation}
+	Krotność geometryczna wartości własnej $2$ jest więc równa $2$,
+		czyli jest równa jej krotności algebraicznej.
+	Ponieważ pozostałe wartości własne mają krotność algebraiczną $1$,
+		to ich krotności geometryczne także są równe $1$.
+	W szczególności macierz $A$ jest diagonalizowalna.
 \end{example}
 
 % TODO: w postaci diagonalnej na diagonali są wektory własne
@@ -188,5 +222,6 @@ Macierz jest diagonalizowalna wtedy i tylko wtedy,
 
 \begin{exercise}\label{ex:upper-triangular-eigenvalues}
 	Udowodnij, że jeśli macierz $A \in \mathbb{C}^{n \times n}$ ma postać górnotrójkątną,
-		to jej wartości własne są dokładnie elementami na jej diagonali.
+		to jej wartości własne są dokładnie elementami na jej diagonali,
+		a ich krotności algebraiczne są liczbą ich wystąpień.
 \end{exercise}
