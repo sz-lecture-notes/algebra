@@ -66,9 +66,27 @@ Wielomian,
 	Niech
 	\begin{equation}
 		A = \left[\begin{matrix}
+			0 & 1 & 0 \\
+			0 & 0 & 1 \\
+			2 & -5 & 4
 		\end{matrix}\right].
 	\end{equation}
 	Wyznaczymy wartości własne macierzy $A$ oraz ich krotności.
+	Mamy
+	\begin{align}
+		\chi_A(t)
+			&= \det\left[\begin{matrix}
+				t & -1 & 0 \\
+				0 & t & -1 \\
+				-2 & 5 & t - 4
+			\end{matrix}\right] \\
+			&= t(t(t - 4) + 5) - 2 \\
+			&= t^3 - 4t^2 + 5t - 2 \\
+			&= (t - 1)^2(t - 2).
+	\end{align}
+	Stąd wartościami własnymi macierzy $A$ są $1$ i $2$.
+	Wartość własna $1$ ma krotność algebraiczną $2$,
+	a wartość własna $2$ ma krotność algebraiczną $1$.
 \end{example}
 
 % TODO: 0 v \textbf{0}
