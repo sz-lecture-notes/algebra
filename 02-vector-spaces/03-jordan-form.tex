@@ -56,6 +56,73 @@ Proces ten jest nieco bardziej złożony,
 \end{enumerate}
 
 \begin{example}
+	Wyznaczmy postać Jordana macierzy
+	\begin{equation}
+			A = \left[\begin{matrix}
+				1 & 0 & 1 & 0 \\
+				0 & 2 & 0 & 1 \\
+				0 & 0 & 1 & 1 \\
+				0 & 0 & 0 & 2
+			\end{matrix}\right].
+		\end{equation}
+		Ponieważ $A$ jest macierzą górnotrójkątną,
+			jej wartościami własnymi są $1$ i $2$.
+		Obie mają krotność algebraiczną $2$.
+	Mamy
+	\begin{equation}
+		A - I = \left[\begin{matrix}
+			0 & 0 & 1 & 0 \\
+			0 & 1 & 0 & 1 \\
+			0 & 0 & 0 & 1 \\
+			0 & 0 & 0 & 1
+		\end{matrix}\right],
+	\end{equation}
+	zatem
+	\begin{equation}
+		\ker(A - I) = \left\{\left[\begin{matrix}
+			x_1 \\
+			0 \\
+			0 \\
+			0
+		\end{matrix}\right] : x_1 \in \mathbb{C}\right\}
+		\implies
+		\dim(\ker(A - I)) = 1.
+	\end{equation}
+	Podobnie
+	\begin{equation}
+		A - 2I = \left[\begin{matrix}
+			-1 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1 \\
+			0 & 0 & -1 & 1 \\
+			0 & 0 & 0 & 0
+		\end{matrix}\right],
+	\end{equation}
+	skąd
+	\begin{equation}
+		\ker(A - 2I) = \left\{\left[\begin{matrix}
+			0 \\
+			x_2 \\
+			0 \\
+			0
+		\end{matrix}\right] : x_2 \in \mathbb{C}\right\}
+		\implies
+		\dim(\ker(A - 2I)) = 1.
+	\end{equation}
+	Krotności geometryczne obu wartości własnych są więc równe $1$.
+	Dla każdej z nich występuje zatem dokładnie jedna klatka Jordana.
+	Ponieważ krotność algebraiczna każdej z nich jest równa $2$,
+		obie klatki mają rozmiar $2$.
+	Postać Jordana macierzy $A$ jest więc równa
+	\begin{equation}
+		J = \left[\begin{matrix}
+			1 & 1 & 0 & 0 \\
+			0 & 1 & 0 & 0 \\
+			0 & 0 & 2 & 1 \\
+			0 & 0 & 0 & 2
+		\end{matrix}\right].
+	\end{equation}
+\end{example}
+
 \begin{example}
 	Wyznaczmy postać Jordana macierzy
 	\begin{equation}
