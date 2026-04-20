@@ -106,8 +106,7 @@ Macierz $X$ w powyższym równaniu traktujemy jako macierz zmiany bazy,
 Dla danej macierzy $A$ istnieć może wiele różnych postaci diagonalnych!
 Nie są one unikalne.
 
-Zauważmy,
-	że macierz jest diagonalizowalna wtedy i tylko wtedy,
+Macierz jest diagonalizowalna wtedy i tylko wtedy,
 	gdy ma $n$ wektorów własnych,
 	których zbiór jest liniowo niezależny.
 % TODO: dlaczego?
@@ -117,13 +116,44 @@ Zauważmy,
 	Macierz
 	\begin{equation}
 		A = \left[\begin{matrix}
-			1 & 1 & 0 \\
-			1 & 1 & 0 \\
-			0 & 0 & 2
+			1 & 0 & 1 & 0 \\
+			0 & 1 & 0 & 1 \\
+			0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1
 		\end{matrix}\right]
 	\end{equation}
-	jest diagonalizowalna.
+	nie jest diagonalizowalna.
 	Wyznaczmy jej wartości własne.
+	Ponieważ $A$ jest macierzą górnotrójkątną,
+		to jej wartości własne leżą na diagonali (zadanie \ref{ex:upper-triangular-eigenvalues}).
+	Mamy
+	\begin{equation}
+		\chi_A(t) = (t - 1)^4.
+	\end{equation}
+	Jedyną wartością własną macierzy $A$ jest więc $1$,
+	o krotności algebraicznej $4$.
+	Dalej
+	\begin{equation}
+		A - I = \left[\begin{matrix}
+			0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1 \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0
+		\end{matrix}\right],
+	\end{equation}
+	skąd
+	\begin{equation}
+		\ker(A - I) = \left\{\left[\begin{matrix}
+			x_1 \\
+			x_2 \\
+			0 \\
+			0
+		\end{matrix}\right] : x_1, x_2 \in \mathbb{C}\right\}
+		\implies
+		\dim(\ker(A - I)) = 2.
+	\end{equation}
+	Krotność geometryczna wartości własnej $1$ jest więc równa $2$,
+		więc macierz $A$ nie jest diagonalizowalna.
 \end{example}
 
 \begin{example}
