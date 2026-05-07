@@ -5,88 +5,89 @@ Zaczniemy od pewnych podstawowych definicji i wprowadzenia do pojęcia kategorii
 \subsection{Klasy.}
 
 Zaczniemy od pewnego pojęcia pierwotnego,
-	które będzie nam potrzebne.
+które będzie nam potrzebne.
 Pojęciem tym jest \textbf{klasa}.
 Klasą nazywamy dowolną kolekcję obiektów.
 Każdy zbiór tworzy klasę swoich elementów.
 Klasy są jednak ogólniejsze niż zbiory.
 Mówić będziemy m.in. o klasie wszystkich zbiorów,
-	klasie wszystkich zbiorów nieskończonych czy skończonych,
-	klasie wszyskich grup,
-	klasie wszystkich przestrzeni liniowych...
+klasie wszystkich zbiorów nieskończonych czy skończonych,
+klasie wszyskich grup,
+klasie wszystkich przestrzeni liniowych...
 W ogólności bpojęcia tego będziemy używać zamiast zbioru,
-	kiedy zbiory będą zbyt małe.
+kiedy zbiory będą zbyt małe.
 Ale nam będzie potrzebny jakiś sposób ,,uchwycenia" wszystkich zbiorów.
 
 Klasy dzielimy na dwa rodzaje: \textbf{zbiory} (które wszyscy wiedzą, czym są) i \textbf{klasy właściwe}.
 Klasy właściwe to klasy,
-	które nie mogą być zbiorami,
-	np. klasa wszystkich zbiorów.
+które nie mogą być zbiorami,
+np. klasa wszystkich zbiorów.
 Jak wiadomo w końcu,
-	zbiór wszystkich zbiorów nie istnieje.
+zbiór wszystkich zbiorów nie istnieje.
 
 \subsection{Kategorie.}
 
 Definicja kategorii nie wymaga zbyt skomplikowanego aparatu.
 Pojęcie klasy jest jedynym,
-	które będzie nam tu potrzebne.
+które będzie nam tu potrzebne.
 Przed przeczytaniem tej definicji należy wziąć jednak głęboki oddech.
 Swoje życie matematyczne możemy podzielić na dwa etapy:
-	przed zrozumieniem kategorii,
-	oraz po ich zrozumieniu.
+przed zrozumieniem kategorii,
+oraz po ich zrozumieniu.
 Powrotu już nie ma,
-	a spojrzenie kategoryczne kategorycznie zmienia sposób myślenia o matematyce.
+a spojrzenie kategoryczne kategorycznie zmienia sposób myślenia o matematyce.
 
 \begin{definition}
 	\textbf{Kategorią} nazywamy parę klas $(O, A)$,
-		gdzie $O$ jest klasą \textbf{obiektów}, a $A$ \textbf{strzałek}.
+	gdzie $O$ jest klasą \textbf{obiektów}, a $A$ \textbf{strzałek}.
 	Spełniają one następujące warunki
 	\begin{itemize}
 		\item Dla każdej strzałki $f$ istnieją obiekty $\dom(f)$ i $\cod(f)$
-			nazywane odpowiednio \textbf{dziedziną} i \textbf{kodziedziną} strzałki,
-			co zapisujemy
-			\begin{equation}
-				f: \dom(f) \to \cod(f).
-			\end{equation}
+		      nazywane odpowiednio \textbf{dziedziną} i \textbf{kodziedziną} strzałki,
+		      co zapisujemy
+		      \begin{equation}
+			      f: \dom(f) \to \cod(f).
+		      \end{equation}
 		\item Dla każdych dwóch strzałek $f$, $g$, spełniających
-			\begin{equation}
-				\cod(f) = \dom(g)
-			\end{equation}
-			istnieje strzałka
-			\begin{equation}
-				g \circ f: \dom(f) \to \cod(g)
-			\end{equation}
-			nazywana \textbf{złożeniem} strzałek $f$ i $g$.
+		      \begin{equation}
+			      \cod(f) = \dom(g)
+		      \end{equation}
+		      istnieje strzałka
+		      \begin{equation}
+			      g \circ f: \dom(f) \to \cod(g)
+		      \end{equation}
+		      nazywana \textbf{złożeniem} strzałek $f$ i $g$.
+		      $g \circ f$ zapisywać będziemy też jako $gf$.
 		\item Dla każdego obiektu $A$ istnieje strzałka
-			\begin{equation}
-				1_A: A \to A
-			\end{equation}
-			nazywana strzałką \textbf{identycznościową}.
+		      \begin{equation}
+			      1_A: A \to A
+		      \end{equation}
+		      nazywana strzałką \textbf{identycznościową}.
 		\item Dla dowolnych trzech strzałek
-			\begin{align}
-				f: A \to B,
-				g: B \to C,
-				h: C \to D,
-			\end{align}
-			spełniona jest własność łącznoci ze względu na składanie
-			\begin{equation}
-				h \circ (g \circ f) = (h \circ g) \circ f
-			\end{equation}
+		      \begin{align}
+			      f: & A \to B, \\
+			      g: & B \to C, \\
+			      h: & C \to D,
+		      \end{align}
+		      spełniona jest własność łącznoci ze względu na składanie
+		      \begin{equation}
+			      h \circ (g \circ f) = (h \circ g) \circ f
+		      \end{equation}
 		\item Dla dowolnej strzałki
-			\begin{equation}
-				f: A \to B
-			\end{equation}
-			spełnione jest
-			\begin{equation}
-				f \circ 1_A = f = 1_B \circ f.
-			\end{equation}
+		      \begin{equation}
+			      f: A \to B
+		      \end{equation}
+		      spełnione jest
+		      \begin{equation}
+			      f \circ 1_A = f = 1_B \circ f.
+		      \end{equation}
 	\end{itemize}
 \end{definition}
 
 Definicję zaczeliśmy od czegoś,
-	co na myśl przywodzi graf skierowany.
+co na myśl przywodzi graf skierowany.
 Potem jednak zapis sugeruje,
-	jakbyśmy działali na funkcjach oraz ich dziedzinach i kodziedzinach.
+jakbyśmy działali na funkcjach oraz ich dziedzinach i kodziedzinach.
 A kończymy z czymś podobnym do monoidu---mamy łączność i identyczność.
 I rzeczywiście wszystkie te spojżenia są trafne.
 Przejdźmy jednak najpierw do konkretnych przykładów kategorii.
@@ -94,8 +95,8 @@ Przejdźmy jednak najpierw do konkretnych przykładów kategorii.
 \begin{example}
 	Zbiory jako obiekty i funkcje jako strzałki tworzą kategorię.
 	Rzeczywiście,
-		wszystkie własności składania funkcji spełniają warunki,
-		które spełniać muszą strzałki.
+	wszystkie własności składania funkcji spełniają warunki,
+	które spełniać muszą strzałki.
 	Jako strzałkę identycznościową wystarczy wziąć funkcję identycznościową.
 	Kategorię tę będziemy oznaczać przez \textbf{Set}.
 \end{example}
@@ -112,32 +113,32 @@ Nie w każdej kategorii jednak strzałki muszą odpowiadać funkcjom.
 \begin{example}
 	Zbiory jako obiekty i pary zbiorów $(A, B)$, że $A \subseteq B$ jako strzałki tworzą kategorię.
 	Rzeczywiście,
-		każde zawieranie
-		\begin{equation}
-			A \subseteq B
-		\end{equation}
-		możemy reprezentować przez strzałkę
-		\begin{equation}
-			(A, B): A \to B,
-		\end{equation}
-		a składanie strzałek i jego łączność jest możliwe
-		ze względu na przechodniość relacji zawierania zbiorów.
-		Strzałka identycznościowa istnieje,
-			bo dla każdego zbioru $A$ mamy
-		\begin{equation}
-			A \subseteq A.
-		\end{equation}
+	każde zawieranie
+	\begin{equation}
+		A \subseteq B
+	\end{equation}
+	możemy reprezentować przez strzałkę
+	\begin{equation}
+		(A, B): A \to B,
+	\end{equation}
+	a składanie strzałek i jego łączność jest możliwe
+	ze względu na przechodniość relacji zawierania zbiorów.
+	Strzałka identycznościowa istnieje,
+	bo dla każdego zbioru $A$ mamy
+	\begin{equation}
+		A \subseteq A.
+	\end{equation}
 \end{example}
 
 O ile w powyższych przykładach obiekty zawsze były jakimiś zbiorami,
-	to wcale nie jest to konieczne.
+to wcale nie jest to konieczne.
 
 \begin{example}
 	Niech $~$ będzie dowolną relacją zwrotną i przechodnią na zbiorze $A$.
 	Elementy $A$ jako obiekty i pary $(a, b)$, gdzie $a ~ b$,
-		tworzą kategorię.
+	tworzą kategorię.
 	Dowodzi się tego podobnie co faktu,
-		że zbiory i ich zawieranie tworzą kategorię.
+	że zbiory i ich zawieranie tworzą kategorię.
 \end{example}
 
 \begin{example}
@@ -145,26 +146,40 @@ O ile w powyższych przykładach obiekty zawsze były jakimiś zbiorami,
 	Ograniczymi się do intuicyjnego wyjaśnienia.
 	Każdy dowód ma pewne założenia i wnioski.
 	Dowody można łączyć w ciągi dowodów,
-		co jest oczywiście łączne.
+	co jest oczywiście łączne.
 	Dowód identycznościowy też jest dowodem ($t \implies t$).
 \end{example}
+
+Dla dowolnych obiektów $A, B$ klasę strzałek między $A, B$ oznaczamy przez $\text{Hom}(A, B)$.
+
+\begin{definition}
+	Kategorię nazywamy \textbf{małą},
+		jeśli jej obiekty i strzałki tworzą zbiór.
+\end{definition}
+
+\begin{definition}
+	Kategorię nazywamy \textbf{lokalnie małą},
+		jeśli dla każdych dwóch obiektów $A, B$  $\text{Hom}(A, B)$ jest zbiorem.
+\end{definition}
 
 \subsection{Diagramy.}
 
 Tutaj będą kiedyś rysunki.
 
+WAŻNE TO OMÓWIĆ!
+
 \subsection{Kilka podstawowych definicji.}
 
 W tej sekcji zaczniemy powoli odkrywać,
-	w jaki sposób kategorie pozwalają na uogólnianie definicji
-	i twierdzeń na całe połacie matematyki.
+w jaki sposób kategorie pozwalają na uogólnianie definicji
+i twierdzeń na całe połacie matematyki.
 
 \begin{definition}
 	\textbf{Obiektem początkowym} kategorii nazywamy taki obiekt $0$,
-		że dla każdego obiektu $A$ istnieje dokładnie jedna strzałka
-		\begin{equation}
-			\alpha_A: 0 \to A.
-		\end{equation}
+	że dla każdego obiektu $A$ istnieje dokładnie jedna strzałka
+	\begin{equation}
+		\alpha_A: 0 \to A.
+	\end{equation}
 \end{definition}
 
 \begin{example}
@@ -178,10 +193,10 @@ W tej sekcji zaczniemy powoli odkrywać,
 
 \begin{definition}
 	\textbf{Obiektem końcowym} kategorii nazywamy taki obiekt $1$,
-		że dla każdego obiektu $B$ istnieje dokładnie jedna strzałka
-		\begin{equation}
-			\tau_A: A \to 1.
-		\end{equation}
+	że dla każdego obiektu $B$ istnieje dokładnie jedna strzałka
+	\begin{equation}
+		\tau_A: A \to 1.
+	\end{equation}
 \end{definition}
 
 \begin{example}
@@ -223,23 +238,54 @@ W tej sekcji zaczniemy powoli odkrywać,
 	Niech $f: A \to B$ będzie dowolną funkcją mono.
 	Niech $x, y \in B$.
 	Załóżmy,
-		że $f(x) = f(y)$.
+	że $f(x) = f(y)$.
 	Chcemy pokazać,
-		że $x = y$.
+	że $x = y$.
 
 	Zdefiniujmy
+	\begin{align}
+		\chi_x:& \{0\} \to A, \quad \chi_x(0) = x. \\
+		\chi_y:& \{0\} \to A, \quad \chi_y(0) = y.
+	\end{align}
+
+	Mamy teraz
 	\begin{equation}
-		\khi_x: \{0\} \to A, \quad \khi_x(0) = x.
-		\khi_y: \{0\} \to A, \quad \khi_y(0) = y.
+		f(\chi_x(0)) = f(x) = f(y) = f(\chi_y(y)),
+	\end{equation}
+	czyli
+	\begin{equation}
+		f \chi_x = f \chi_y.
 	\end{equation}
 
-	Mamy treaz ...
-
 	Ponieważ $f$ jest mono,
-		to $\khi_x = \khi_y$.
+	to $\chi_x = \chi_y$.
 	Więc $x = y$.
 
 	Teraz pokażemy, że każda iniekcja to monomorfizm.
+	Niech $f: A \to B$ będzie dowolną iniekcją.
+	Niech $g,h: C \to A$ będą dowolnymi funkcjami takimi, że
+	\begin{equation}
+		fg = fh
+	\end{equation}
+	Pokażemy, że
+	\begin{equation}
+		g = h.
+	\end{equation}
+
+	Weźmy dowolny $x \in C$.
+	Ponieważ $fg = fh$, to
+	\begin{equation}
+		f(g(x)) = f(h(x)).
+	\end{equation}
+	Ponieważ $f$ jest iniekcją, to
+	\begin{equation}
+		g(x) = h(x).
+	\end{equation}
+	Ponieważ $x$ był dowolny, to
+	\begin{equation}
+		g = h
+	\end{equation}
+	\qed
 \end{example}
 
 \begin{definition}
@@ -266,3 +312,27 @@ W tej sekcji zaczniemy powoli odkrywać,
 \end{example}
 
 \subsection{Zadania.}
+\begin{exercise}
+	Czy dowolny graf skierowany jest kategorią? Dlaczego?
+\end{exercise}
+
+\begin{exercise}
+	Czy każda kategoria jest monoidem? Dlaczego? Czy każda mała kategoria jest monoidem?
+\end{exercise}
+
+\begin{exercise}
+	Udowodnij, że jeśli $(A, \cdot, e)$ jest monoidem,
+		to tworzy on kategorię z:
+		$A$ jako jedynym obiektem,
+		elementami $a \in A$ jako strzałkami $a: A \to A$
+		i $\cdot$ jako składaniem strzałek.
+\end{exercise}
+
+\begin{exercise}
+	Wskaż obiekty końcowe i początkowe w \textbf{Lin}.
+	Pamiętaj, że nie ma czegoś takiego jak pusta przestrzeń liniowa.
+\end{exercise}
+
+\begin{exercise}
+	Udowodnij, że w \textbf{Set} epimorfizmy to dokładnie surjekcje.
+\end{exercise}
